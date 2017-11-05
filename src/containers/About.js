@@ -43,7 +43,7 @@ class About extends React.Component {
 	}
 }
 
-// I am almost 100% certain this is now how you do this vvv
+// I am almost 100% certain this is not* how you do this vvv
 const mapStateToProps = state => ({ data: state['testForApiReducer'] });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ requestTestApiData }, dispatch);
