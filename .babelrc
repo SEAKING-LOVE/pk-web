@@ -1,0 +1,12 @@
+{
+	"env": {
+		"production": {
+			"plugins": [["emotion", { "sourceMap": false, "hoist": true }], "transform-object-rest-spread", "transform-class-properties"]
+		},
+		"development": {
+			"plugins": [["emotion", { "sourceMap": true, "hoist": false }], "transform-object-rest-spread", "transform-class-properties"]
+		}
+	},
+	"presets": ["env", "react"],
+	"plugins": ["emotion"]
+}
