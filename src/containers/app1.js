@@ -3,18 +3,10 @@ import { render } from 'react-dom';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-
 import InputPreview from '../components/InputPreview';
 //import { setMessage } from '../actions/message';
 import { SET_MESSAGE_REQUEST } from '../types/message';
 
-// const Hello = styled('div')`
-// 	height: 100px;
-// 	width: 200px;
-// 	color: red;
-// 	background: blue;
-// 	text-align: center;
-// `
 import Hello from '../styles/app.js';
 
 class App extends React.Component {
