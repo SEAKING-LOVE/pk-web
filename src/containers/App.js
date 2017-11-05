@@ -2,41 +2,43 @@ import React from 'react';
 import { render } from 'react-dom';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import styled, { css, injectGlobal } from 'react-emotion';
+
 
 import InputPreview from '../components/InputPreview';
 //import { setMessage } from '../actions/message';
 import { SET_MESSAGE_REQUEST } from '../types/message';
 
-const Hello = styled('div')`
-	height: 100px;
-	width: 200px;
-	color: red;
-	background: blue;
-	text-align: center;
-`
+// const Hello = styled('div')`
+// 	height: 100px;
+// 	width: 200px;
+// 	color: red;
+// 	background: blue;
+// 	text-align: center;
+// `
+import Hello from '../styles/app.js';
 
 class App extends React.Component {
 	_onChange = value => {
 		//this.props.dispatch(setMessage(value))
 		this.props.dispatch({type: SET_MESSAGE_REQUEST, payload: {message: value}})
 	}
-
-	render() {
+	renderLink() {
+		return <Link to="/about">
+				<button>About</button>
+			</Link>;
+	}
+	renderInput() {
 		const { message } = this.props.messageReducer;
-		
-		return (
-			<div>
-				<Hello>Hello from React!</Hello>
-				<InputPreview 
-					value={message} 
-					onChange={this._onChange}
-				/>
-				<Link to="/about">
-					<button>About</button>
-				</Link>
-			</div>
-		);
+		return <InputPreview 
+				value={message} 
+				onChange={this._onChange} />
+	}
+	render() {
+		return <div>
+			<Hello>Hello from React!</Hello>
+			{this.renderInput()}
+			{this.renderLink()}
+		</div>
 	}
 }
 
