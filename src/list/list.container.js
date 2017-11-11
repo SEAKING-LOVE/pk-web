@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import * as Actions from './list.actions.js';
 import List from './list.jsx';
 
 const stateToProps = (state) => ({
@@ -7,7 +8,9 @@ const stateToProps = (state) => ({
 
 const dispatchToProps = (dispatch) => {
 	return {
-		testFn: () => { console.log('TEST FN'); }
+		testFn: () => { console.log('TEST FN'); },
+		fetchAll: () => dispatch( Actions.fetchAllPokemon() )
+
 	}
 }
 

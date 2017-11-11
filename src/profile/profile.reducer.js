@@ -1,16 +1,15 @@
 const initialState = {
-	name: ''
+	stats: []
 };
 
 
 export default(state = initialState, action) => {
 	switch(action.type) {
-		case FETCH_PROFILE:
+		case 'FETCH_STATS': {
+			return { ...state, stats: action.payload.data };
+		}
+		default: {
 			return state;
-		case FETCH_PROFILE_SUCCEEDED: 
-			console.log('FETCH PROFILE SUCCESS -- profile.reducer');
-			return { ...state, name: 'pkname' };
-		default:
-			return state;
+		}
 	}
 }

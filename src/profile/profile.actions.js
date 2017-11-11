@@ -1,8 +1,8 @@
-export const fetchProfile = (id) => {
-	return dispatch => {
-		dispatch({
-			type: 'FETCH_PROFILE',
-			payload: 'profile payload test'
-		})
+import axios from 'axios';
+
+export const fetchStats = (id) => {
+	return {
+		type: 'FETCH_STATS',
+		payload: 'profile payload test'
 	}
 }
