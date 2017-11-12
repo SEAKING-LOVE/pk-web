@@ -9,8 +9,8 @@ const API = {
 	allPokemon: () => {
 		return axios.get( urlBuilder('pokemon/') );
 	},
-	stats: (id) => {
-		return '';
+	statsByPkId: (id) => {
+		return axios.get( urlBuilder(`pokemon/stats/${id}`) );
 	}
 };
 

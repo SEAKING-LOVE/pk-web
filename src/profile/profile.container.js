@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
+import * as Actions from './profile.actions.js';
 import Profile from './profile.jsx';
 
 const stateToProps = (state) => ({
-	test: '~~~~~~'
+	stats: state.profile.stats
 });
 
 const dispatchToProps = (dispatch) => {
 	return {
-		testFn: () => { console.log('????????'); }
+		fetchStats: (id) => dispatch( Actions.fetchStats(id) )
 	}
 }
 
