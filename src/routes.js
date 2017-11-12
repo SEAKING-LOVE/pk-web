@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
-import List from './list/list.container.js';
-import Profile from './profile/profile.container.js';
+import List from './list/list.container.jsx';
+import Profile from './profile/profile.container.jsx';
 
 class App extends Component {
 	render() {
