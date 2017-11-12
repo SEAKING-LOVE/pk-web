@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
 class Stats extends Component {
-	componentDidMount() {
-		this.props.fetchStats(1);
-	}
 	render() {
 		return <div className='profile'>
 			stats component

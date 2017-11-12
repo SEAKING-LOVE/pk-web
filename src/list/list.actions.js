@@ -6,3 +6,10 @@ export const fetchAllPokemon = () => {
 		payload: API.allPokemon()
 	}
 }
+
+export const updateSelectedId = (id) => {
+	return {
+		type: 'UPDATE_SELECTED_ID',
+		payload: id
+	}
+}

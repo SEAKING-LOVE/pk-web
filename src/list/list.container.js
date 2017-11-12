@@ -8,7 +8,8 @@ const stateToProps = (state) => ({
 
 const dispatchToProps = (dispatch) => {
 	return {
-		fetchAll: () => dispatch( Actions.fetchAllPokemon() )
+		fetchAll: () => dispatch( Actions.fetchAllPokemon() ),
+		selectPk: (id) => dispatch( Actions.updateSelectedId(id) )
 	}
 }
 

@@ -3,7 +3,7 @@ import * as Actions from './profile.actions.js';
 import Profile from './profile.jsx';
 
 const stateToProps = (state) => ({
-	stats: state.profile.stats
+	selectedId: state.list.selectedId
 });
 
 const dispatchToProps = (dispatch) => {

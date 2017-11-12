@@ -7,7 +7,11 @@ class List extends Component {
 	}
 	renderList() {
 		return this.props.list.map((pk, index) => {
-			return <ListItem key={index} id={pk.id} name={pk.identifier}/>
+			return <ListItem 
+				key={index} 
+				id={pk.id} 
+				name={pk.identifier}
+				onClick={() => this.props.selectPk(pk.id)}/>
 		})
 	}
 	render() {

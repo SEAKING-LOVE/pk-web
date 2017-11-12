@@ -3,6 +3,7 @@ import * as Actions from '../profile.actions.js';
 import Stats from './stats.jsx';
 
 const stateToProps = (state) => ({
+	selectedId: state.list.selectedId,
 	hp: state.profile.stats.hp,
 	attack: state.profile.stats.attack,
 	defense: state.profile.stats.defense,
@@ -12,9 +13,7 @@ const stateToProps = (state) => ({
 });
 
 const dispatchToProps = (dispatch) => {
-	return {
-		fetchStats: (id) => dispatch( Actions.fetchStats(id) )
-	}
+	return { }
 }
 
 const Container = connect(
