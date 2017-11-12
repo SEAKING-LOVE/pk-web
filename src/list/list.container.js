@@ -3,14 +3,12 @@ import * as Actions from './list.actions.js';
 import List from './list.jsx';
 
 const stateToProps = (state) => ({
-	test: 'supp'
+	list: state.list.rawList
 });
 
 const dispatchToProps = (dispatch) => {
 	return {
-		testFn: () => { console.log('TEST FN'); },
 		fetchAll: () => dispatch( Actions.fetchAllPokemon() )
-
 	}
 }
 

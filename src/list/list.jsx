@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+import ListItem from './listItem.jsx';
 
 class List extends Component {
 	componentDidMount() {
 		this.props.fetchAll()
 	}
+	renderList() {
+		return this.props.list.map((pk, index) => {
+			return <ListItem key={index} id={pk.id} name={pk.identifier}/>
+		})
+	}
 	render() {
 		return <div className='list'>
-			list component
+			<h1>list component </h1>
+			{this.renderList()}
 		</div>
 	}
 }

@@ -6,8 +6,8 @@ import Profile from './profile/profile.container.js';
 class App extends Component {
 	render() {
 		return <div className='app'> 
-			<List />
 			<Profile />
+			<List />
 		</div>
 	}
 }
