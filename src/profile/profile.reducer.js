@@ -1,3 +1,5 @@
+import { RECEIVE_POKEMON_PROFILE } from './profile.types.js';
+
 const initialState = {
 	stats: {
 		hp: 0,
@@ -9,11 +11,10 @@ const initialState = {
 	}
 };
 
-
-export default(state = initialState, action) => {
-	switch(action.type) {
-		case 'FETCH_STATS': {
-			return { ...state, stats: action.payload.data };
+export default(state = initialState, { type, data }) => {
+	switch(type) {
+		case RECEIVE_POKEMON_PROFILE: {
+			return { ...state, stats: data };
 		}
 		default: {
 			return state;

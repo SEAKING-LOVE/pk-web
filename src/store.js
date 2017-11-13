@@ -1,7 +1,13 @@
-import { applyMiddleware, createStore } from 'redux';
-import promise from 'redux-promise';
+import { createStore, applyMiddleware } from 'redux';
+
 import reducer from './reducer.js';
+import { sagas, runSagas } from './sagas.js';
 
-const middleware = applyMiddleware(promise);
+const store = createStore(
+	reducer,
+	applyMiddleware(sagas)
+);
 
-export default createStore(reducer, middleware);
+runSagas();
+
+export default store;

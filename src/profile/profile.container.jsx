@@ -1,20 +1,15 @@
 import { connect } from 'react-redux';
-import * as Actions from './profile.actions.js';
+import { requestPokemonProfile } from './profile.actions.js';
 import Profile from './profile.jsx';
 
-const stateToProps = (state) => ({
+const mapStateToProps = (state) => ({
 	selectedId: state.list.selectedId
 });
 
-const dispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
-		fetchStats: (id) => dispatch( Actions.fetchStats(id) )
+		requestPokemonProfile: (id) => dispatch( requestPokemonProfile(id) )
 	}
 }
 
-const Container = connect(
-	stateToProps,
-	dispatchToProps
-)(Profile);
-
-export default Container;
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

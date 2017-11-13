@@ -3,7 +3,7 @@ import ListItem from './listItem.jsx';
 
 class List extends Component {
 	componentDidMount() {
-		this.props.fetchAll()
+		this.props.requestAllPokemon();
 	}
 	renderList() {
 		return this.props.list.map((pk, index) => {
@@ -11,7 +11,7 @@ class List extends Component {
 				key={index} 
 				id={pk.id} 
 				name={pk.identifier}
-				onClick={() => this.props.selectPk(pk.id)}/>
+				onClick={() => this.props.requestUpdateSelectedId(pk.id)}/>
 		})
 	}
 	render() {

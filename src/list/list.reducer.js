@@ -3,15 +3,16 @@ const initialState = {
 	rawList: []
 };
 
+import { RECEIVE_ALL_POKEMON, RECEIVE_UPDATE_SELECTED_ID } from './list.types.js';
 
-export default(state = initialState, action) => {
-	switch(action.type) {
-		case 'FETCH_ALL_POKEMON': {
-			return { ...state, rawList: action.payload.data };
-		}
-		case 'UPDATE_SELECTED_ID': {
-			return { ...state, selectedId: action.payload };
-		}
+export default (state = initialState, { type, data }) => {
+	switch (type) {
+		case RECEIVE_ALL_POKEMON:
+			return {...state, rawList: data} ;
+		case RECEIVE_UPDATE_SELECTED_ID:
+			return {...state, selectedId: data};
+			// NOTE: Use this version if you're using the pokemon/:id endpoint SEE list.saga.js
+			// return {...state, selectedId: data.id};
 		default:
 			return state;
 	}

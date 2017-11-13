@@ -1,21 +1,16 @@
 import { connect } from 'react-redux';
-import * as Actions from './list.actions.js';
+import { requestAllPokemon, requestUpdateSelectedId } from './list.actions.js';
 import List from './list.jsx';
 
-const stateToProps = (state) => ({
+const mapStateToProps = (state) => ({
 	list: state.list.rawList
 });
 
-const dispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
-		fetchAll: () => dispatch( Actions.fetchAllPokemon() ),
-		selectPk: (id) => dispatch( Actions.updateSelectedId(id) )
+		requestAllPokemon: () => dispatch( requestAllPokemon() ),
+		requestUpdateSelectedId: (id) => dispatch( requestUpdateSelectedId(id) )
 	}
 }
 
-const Container = connect(
-	stateToProps,
-	dispatchToProps
-)(List);
-
-export default Container;
+export default connect(mapStateToProps, mapDispatchToProps)(List);

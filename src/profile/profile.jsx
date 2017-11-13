@@ -3,10 +3,10 @@ import Stats from './stats/stats.container.jsx';
 
 class Profile extends Component {
 	componentDidMount() {
-		this.props.fetchStats(this.props.selectedId);
+		this.props.requestPokemonProfile(this.props.selectedId);
 	}
 	componentDidUpdate() {
-		this.props.fetchStats(this.props.selectedId);
+		this.props.requestPokemonProfile(this.props.selectedId);
 	}
 	render() {
 		return <div className='profile'>

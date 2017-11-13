@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import * as Actions from '../profile.actions.js';
 import Stats from './stats.jsx';
 
 const stateToProps = (state) => ({
