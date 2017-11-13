@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production node server.js",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack-dev-server --inline --config webpack.dev.js"
   },
@@ -21,6 +22,7 @@
   "dependencies": {
     "axios": "^0.17.0",
     "emotion": "^8.0.9",
+    "express": "^4.16.2",
     "grid-emotion": "^2.1.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
