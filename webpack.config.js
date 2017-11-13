@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const paths = {
@@ -17,6 +18,9 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: path.join(paths.SRC, 'index.html')
 		}),
+		new webpack.DefinePlugin({
+			API_HOST: JSON.stringify('http://localhost:3000')
+		})
 	],
 	module: {
 		rules: [
