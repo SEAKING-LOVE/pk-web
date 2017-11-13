@@ -20,7 +20,7 @@ function* getUpdatedSelectedID(action) {
 	try {
 		const selectedId = action.id;
 		yield put(receiveUpdateSelectedId(selectedId));
-		// NOTE: Use this version if you want to return basic Pokemon info on click
+		// NOTE: Use this version if you want to return basic Pokemon info on click SEE list.reducer.js
 		// const data = yield call(fetchData, `pokemon/${action.id}`);
 		// yield put(receiveUpdateSelectedId(data));
 	} catch (e) {
