@@ -1,9 +1,9 @@
+import { RECEIVE_ALL_POKEMON, RECEIVE_UPDATE_SELECTED_ID } from './list.types.js';
+
 const initialState = {
 	selectedId: 1,
 	rawList: []
 };
-
-import { RECEIVE_ALL_POKEMON, RECEIVE_UPDATE_SELECTED_ID } from './list.types.js';
 
 export default (state = initialState, { type, data }) => {
 	switch (type) {
