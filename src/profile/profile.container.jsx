@@ -3,7 +3,8 @@ import { requestPokemonProfile } from './profile.actions.js';
 import Profile from './profile.jsx';
 
 const mapStateToProps = (state) => ({
-	selectedId: state.list.selectedId
+	selectedId: state.list.selectedId,
+	stats: state.profile.stats
 });
 
 const mapDispatchToProps = (dispatch) => {

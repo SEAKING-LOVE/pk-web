@@ -9,6 +9,7 @@ class Profile extends Component {
 		this.props.requestPokemonProfile(this.props.selectedId);
 	}
 	render() {
+		console.log('***************PROFILE', this.props.stats);
 		return <div className='profile'>
 			<h1> profile component </h1>
 			<Stats />
