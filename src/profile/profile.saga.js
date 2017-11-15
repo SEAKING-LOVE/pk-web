@@ -2,39 +2,38 @@
 import "regenerator-runtime/runtime";
 
 import { call, put, takeLatest } from 'redux-saga/effects';
-
-import { REQUEST_POKEMON_STATS } from './profile.types.js';
-import { REQUEST_POKEMON_PROFILE } from './profile.types.js';
-import { receivePokemonStats, receivePokemonProfile } from './profile.actions.js';
 import { fetchData } from '../api.js';
-
-function* getPokemonStats(action) {
-	try {
-		const data = yield call(fetchData, `pokemon/stats/${action.id}`);
-		yield put(receivePokemonProfile(data));
-		// yield put(receivePokemonStats(data));
-	} catch (e) {
-		console.log(e);
-	}
-}
+import { REQUEST_POKEMON_STATS, REQUEST_POKEMON_PROFILE } from './profile.types.js';
+import { 
+	receivePokemonStats,
+	receivePokemonProfileSuccess,
+	receivePokemonProfileFailure
+} from './profile.actions.js';
 
 function* getPokemonProfile(action) {
-	console.log('SAGA PROFILE', action)
 	let profile = {
-		stats: {}
+		general: {},
+		stats: {},
+		types: [],
+		abilities: [],
+		moves: [],
 	};
 	try {	
+		profile.general = yield call(fetchData, `pokemon/${action.id}`);
 		profile.stats = yield call(fetchData, `pokemon/stats/${action.id}`);
-		console.log('GOT STATS ??', profile);
-		yield put(receivePokemonProfile(profile));
+		profile.types = yield call(fetchData, `pokemon/types/${action.id}`);
+		profile.abilities = yield call(fetchData, `pokemon/abilities/${action.id}`);
+		profile.moves = yield call(fetchData, `pokemon/moves/${action.id}`);
+
+		yield put(receivePokemonProfileSuccess(profile));
+
 	} catch(e) {
-		console.log(e);
+		yield put(receivePokemonProfileFailure(e));
 	}
 }
 
 export default function* profileSaga() {
 	yield [
-		takeLatest(REQUEST_POKEMON_STATS, getPokemonStats),
 		takeLatest(REQUEST_POKEMON_PROFILE, getPokemonProfile)
 	]
 }

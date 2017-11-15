@@ -4,12 +4,12 @@ import Profile from './profile.jsx';
 
 const mapStateToProps = (state) => ({
 	selectedId: state.list.selectedId,
-	stats: state.profile.stats
+	requestSuccess: state.profile.receiveProfileSuccess,
 });
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		requestPokemonProfile: (id) => dispatch( requestPokemonProfile(id) )
+		requestPokemonProfile: (id) => dispatch( requestPokemonProfile(id) ),
 	}
 }
 

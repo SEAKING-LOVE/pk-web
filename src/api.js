@@ -3,11 +3,7 @@ const urlBuilder = (path) => {
 };
 
 export const fetchData = async (path) => {
-	try {
-		const response = await fetch(urlBuilder(path));
-		const data = await response.json();
-		return data;
-	} catch (e) {
-		console.log(e);
-	}
+	const response = await fetch(urlBuilder(path));
+	const data = await response.json();
+	return data;
 }
