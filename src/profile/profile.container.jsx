@@ -3,12 +3,13 @@ import { requestPokemonProfile } from './profile.actions.js';
 import Profile from './profile.jsx';
 
 const mapStateToProps = (state) => ({
-	selectedId: state.list.selectedId
+	selectedId: state.list.selectedId,
+	requestSuccess: state.profile.receiveProfileSuccess,
 });
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		requestPokemonProfile: (id) => dispatch( requestPokemonProfile(id) )
+		requestPokemonProfile: (id) => dispatch( requestPokemonProfile(id) ),
 	}
 }
 

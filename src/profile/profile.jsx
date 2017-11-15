@@ -5,8 +5,10 @@ class Profile extends Component {
 	componentDidMount() {
 		this.props.requestPokemonProfile(this.props.selectedId);
 	}
-	componentDidUpdate() {
-		this.props.requestPokemonProfile(this.props.selectedId);
+	componentWillReceiveProps(nextProps) {
+		if(this.props.selectedId !== nextProps.selectedId) {
+			this.props.requestPokemonProfile(this.props.selectedId);
+		}	
 	}
 	render() {
 		return <div className='profile'>
