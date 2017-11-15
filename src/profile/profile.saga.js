@@ -17,6 +17,7 @@ function* getPokemonProfile(action) {
 		types: [],
 		abilities: [],
 		moves: [],
+		evolutions: []
 	};
 	try {	
 		profile.general = yield call(fetchData, `pokemon/${action.id}`);
@@ -24,6 +25,7 @@ function* getPokemonProfile(action) {
 		profile.types = yield call(fetchData, `pokemon/types/${action.id}`);
 		profile.abilities = yield call(fetchData, `pokemon/abilities/${action.id}`);
 		profile.moves = yield call(fetchData, `pokemon/moves/${action.id}`);
+		profile.evolutions = yield call(fetchData, `evolutions/${action.id}`);
 
 		yield put(receivePokemonProfileSuccess(profile));
 

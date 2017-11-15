@@ -30,7 +30,8 @@ const initialState = {
 		'level-up': [{ id: 0, level: 0, identifier: '' }],
 		egg: [{ id: 0, level: 0, identifier: '' }],
 		tutor: [{ id: 0, level: 0, identifier: '' }],
-	}
+	},
+	evolutions: []
 };
 
 export default(state = initialState, { type, data }) => {
@@ -42,6 +43,7 @@ export default(state = initialState, { type, data }) => {
 			const types = data.types;
 			const abilities = data.abilities;
 			const moves = data.moves;
+			const evolutions = data.evolutions;
 			return { 
 				...state,
 				receiveProfileSuccess,
@@ -49,7 +51,8 @@ export default(state = initialState, { type, data }) => {
 				stats,
 				types,
 				abilities,
-				moves
+				moves,
+				evolutions
 			};
 		}
 		case RECEIVE_POKEMON_PROFILE_FAILURE: {
