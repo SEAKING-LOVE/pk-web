@@ -3,14 +3,13 @@ import {
 	RECEIVE_POKEMON_PROFILE_SUCCESS,
 	RECEIVE_POKEMON_PROFILE_FAILURE,
 } from './profile.types.js';
-import {  } from './profile.types.js';
 
 const initialState = {
 	receiveProfileSuccess: false,
 	pendingProfile: false, 
 	general: {
 		id: 0,
-		identifier: '',
+		name: '',
 		height: '',
 		weight: '',
 		baseExperience: ''
@@ -23,15 +22,22 @@ const initialState = {
 		'special-defense': 0,
 		speed: 0
 	},
-	types: [{ id: 0, identifier: '' }],
-	abilities: [{ id: 0, identifier: '', hidden: false }],
+	types: [{ id: 0, name: '' }],
+	abilities: [{ id: 0, name: '', hidden: false }],
 	moves: {
-		machine: [{ id: 0, level: 0, identifier: '' }],
-		'level-up': [{ id: 0, level: 0, identifier: '' }],
-		egg: [{ id: 0, level: 0, identifier: '' }],
-		tutor: [{ id: 0, level: 0, identifier: '' }],
+		machine: [{ id: 0, level: 0, name: '' }],
+		'level-up': [{ id: 0, level: 0, name: '' }],
+		egg: [{ id: 0, level: 0, name: '' }],
+		tutor: [{ id: 0, level: 0, name: '' }],
 	},
-	evolutions: []
+	evolutions: [
+		{
+			id: 0,
+			name: '',
+			predecessorId: null,
+			chainId: 0
+		}
+	]
 };
 
 export default(state = initialState, { type, data }) => {
