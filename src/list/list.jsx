@@ -10,7 +10,7 @@ class List extends Component {
 			return <ListItem 
 				key={index} 
 				id={pk.id} 
-				name={pk.identifier}
+				name={pk.name}
 				onClick={() => this.props.requestUpdateSelectedId(pk.id)}/>
 		})
 	}
