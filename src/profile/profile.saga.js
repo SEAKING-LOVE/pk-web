@@ -1,4 +1,3 @@
-// Use this instead of polyfill
 import "regenerator-runtime/runtime";
 
 import { call, put, takeLatest } from 'redux-saga/effects';
@@ -12,7 +11,7 @@ import {
 
 function* getPokemonProfile(action) {
 	let profile = {
-		general: {},
+		overview: {},
 		stats: {},
 		types: [],
 		abilities: [],
@@ -20,7 +19,7 @@ function* getPokemonProfile(action) {
 		evolutions: []
 	};
 	try {	
-		profile.general = yield call(fetchData, `pokemon/${action.id}`);
+		profile.overview = yield call(fetchData, `pokemon/${action.id}`);
 		profile.stats = yield call(fetchData, `pokemon/stats/${action.id}`);
 		profile.types = yield call(fetchData, `pokemon/types/${action.id}`);
 		profile.abilities = yield call(fetchData, `pokemon/abilities/${action.id}`);

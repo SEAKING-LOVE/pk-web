@@ -6,8 +6,8 @@ const stateToProps = (state) => ({
 	hp: state.profile.stats.hp,
 	attack: state.profile.stats.attack,
 	defense: state.profile.stats.defense,
-	spAttack: state.profile.stats['special-attack'],
-	spDefense: state.profile.stats['special-defense'],
+	specialAttack: state.profile.stats.specialAttack,
+	specialDefense: state.profile.stats.specialDefense,
 	speed: state.profile.stats.speed,
 });
 
