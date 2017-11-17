@@ -1,4 +1,3 @@
-// Use this instead of polyfill
 import "regenerator-runtime/runtime";
 
 import { call, put, takeLatest } from 'redux-saga/effects';

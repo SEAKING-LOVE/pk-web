@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Stats extends Component {
 	render() {
-		return <div className='profile'>
+		return <div className='stats'>
 			stats component
 			<div>HP: {this.props.hp}</div>
 			<div>ATK: {this.props.attack}</div>
