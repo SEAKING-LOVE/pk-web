@@ -10,7 +10,7 @@ class Profile extends Component {
 		this.state = {
 			tabIndex: 0
 		};
-		this.nav = [
+		this.tabs = [
 			{ label: 'overview', component: <Overview /> },
 			{ label: 'stats', component: <Stats /> },
 			{ label: 'moves', component: <Moves /> },
@@ -26,8 +26,8 @@ class Profile extends Component {
 		}	
 	}
 	renderTabs() {
-		const tabs = this.nav.map((view, index) => {
-			return this.renderTab(view.label, index);
+		const tabs = this.tabs.map((tab, index) => {
+			return this.renderTab(tab.label, index);
 		});
 		return <div className='tabs'>
 			{tabs}
@@ -45,7 +45,7 @@ class Profile extends Component {
 		this.setState({ tabIndex: index });
 	}
 	renderContent() {
-		return this.nav[this.state.tabIndex].component;
+		return this.tabs[this.state.tabIndex].component;
 	}
 	render() {
 		return <div className='profile'>
