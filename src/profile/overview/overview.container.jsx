@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
 	height: state.profile.overview.height,
 	weight: state.profile.overview.weight,
 	baseExperience: state.profile.overview.baseExperience,
+	types: state.profile.types,
 });
 
 const mapDispatchToProps = (dispatch) => {

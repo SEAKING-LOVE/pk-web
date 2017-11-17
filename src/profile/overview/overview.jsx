@@ -9,6 +9,7 @@ class Overview extends Component {
 			<div>height: {this.props.height}</div>
 			<div>weight: {this.props.weight}</div>
 			<div>base experience: {this.props.baseExperience}</div>
+			<div>type: {JSON.stringify(this.props.types)}</div>
 		</div>
 	}
 }
