@@ -7,7 +7,7 @@ import {
 const initialState = {
 	receiveProfileSuccess: false,
 	pendingProfile: false, 
-	general: {
+	overview: {
 		id: 0,
 		name: '',
 		height: '',
@@ -18,8 +18,8 @@ const initialState = {
 		hp: 0,
 		attack: 0,
 		defense: 0,
-		'special-attack': 0,
-		'special-defense': 0,
+		specialAttack: 0,
+		specialDefense: 0,
 		speed: 0
 	},
 	types: [{ id: 0, name: '' }],
@@ -44,7 +44,7 @@ export default(state = initialState, { type, data }) => {
 	switch(type) {
 		case RECEIVE_POKEMON_PROFILE_SUCCESS: {
 			const receiveProfileSuccess = true;
-			const general = data.general;
+			const overview = data.overview;
 			const stats = data.stats;
 			const types = data.types;
 			const abilities = data.abilities;
@@ -53,7 +53,7 @@ export default(state = initialState, { type, data }) => {
 			return { 
 				...state,
 				receiveProfileSuccess,
-				general,
+				overview,
 				stats,
 				types,
 				abilities,

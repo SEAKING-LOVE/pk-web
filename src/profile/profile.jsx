@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Overview from './overview/overview.jsx';
+import Overview from './overview/overview.container.jsx';
 import Stats from './stats/stats.container.jsx';
 import Moves from './moves/moves.container.jsx';
 import Evolution from './evolution/evolution.container.jsx';

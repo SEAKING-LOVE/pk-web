@@ -3,6 +3,7 @@ import { requestPokemonProfile } from '../profile.actions.js';
 import Evolution from './Evolution.jsx';
 
 const mapStateToProps = (state) => ({
+	chain: state.profile.evolutions
 });
 
 const mapDispatchToProps = (dispatch) => {
