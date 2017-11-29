@@ -1,7 +1,8 @@
 import styled from 'react-emotion';
+import { Colors } from '../../themes/themes.js';
 
 export const OverviewContainer = styled('div')`
-  background-image: linear-gradient(-135deg, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+  background-image: ${Colors.gradient.pink};
   padding: 15px 20px;
   color: white;
   border-radius: 0.4em;
