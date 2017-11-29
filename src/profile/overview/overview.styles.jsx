@@ -1,5 +1,5 @@
 import styled from 'react-emotion';
-import { Colors } from '../../themes/themes.js';
+import { Colors, Fonts } from '../../themes/themes.js';
 
 export const OverviewContainer = styled('div')`
   background-image: ${Colors.gradient.pink};
@@ -22,17 +22,17 @@ export const Cell = styled('div')`
 export const Title = styled('div')`
   font-weight: 700;
   font-size: 1.2em;
-  font-family: 'Dosis', sans-serif;
+  font-family: ${Fonts.titleFamily};
 `;
 
 export const Subtitle = styled('div')`
   text-transform: capitalize;
-  font-family: 'Concert One', cursive;
+  font-family: ${Fonts.bodyFamily};
 `;
 
 export const Subtype = styled('div')`
   text-transform: capitalize;
-  font-family: 'Concert One', cursive;
+  font-family: ${Fonts.bodyFamily};
   display: inline;
 
   &:not(:first-child) {
@@ -43,5 +43,5 @@ export const Subtype = styled('div')`
 `;
 
 export const Subnumber = styled('div')`
-  font-family: 'Concert One', cursive;
+  font-family: ${Fonts.bodyFamily};
 `;
