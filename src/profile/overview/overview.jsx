@@ -3,38 +3,39 @@ import { leadingZeros } from '../../utils.js';
 import { OverviewContainer, Row, Cell, Title, Subtitle, Subtype, Subnumber } from './overview.styles.jsx'
 
 class Overview extends Component {
+	renderTypes() {
+		return this.props.types.map( type => {
+			return <Subtype key={type.id}>{type.name}</Subtype>;
+		});
+	}
 	render() {
 		return <OverviewContainer className='overview'>
 			<Row>
 				<Cell>
-					<Title>National Dex #</Title>
 					<Subtitle>{leadingZeros(this.props.id)}</Subtitle>
+					<Title>National No</Title>
 				</Cell>
 				<Cell>
-					<Title>Pokemon Name</Title>
 					<Subtitle>{this.props.name}</Subtitle>
+					<Title>Name</Title>
 				</Cell>
 				<Cell>
+					<Subtitle> {this.renderTypes()} </Subtitle>
 					<Title>Type</Title>
-					<div>
-					{this.props.types.map( type => {
-						return <Subtype key={type.id}>{type.name}</Subtype>;
-					})}
-				</div>
 				</Cell>
 			</Row>
 			<Row>
 				<Cell>
+					<Subtitle>{this.props.height}m</Subtitle>
 					<Title>Height</Title>
-					<Subnumber>{this.props.height}m</Subnumber>
 				</Cell>
 				<Cell>
+					<Subtitle>{this.props.weight}kg</Subtitle>
 					<Title>Weight</Title>
-					<Subnumber>{this.props.weight}kg</Subnumber>
 				</Cell>
 				<Cell>
-					<Title>Base Experience</Title>
-					<Subnumber>{this.props.baseExperience}</Subnumber>
+					<Subtitle>{this.props.baseExperience}</Subtitle>
+					<Title>Base Exp</Title>
 				</Cell>
 			</Row>
 		</OverviewContainer>
