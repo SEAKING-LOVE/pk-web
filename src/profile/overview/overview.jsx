@@ -8,6 +8,11 @@ class Overview extends Component {
 			return <Subtype key={type.id}>{type.name}</Subtype>;
 		});
 	}
+	renderAbilities() {
+		return this.props.abilities.map( ability => {
+			return <Subtype key={ability.id}>{ability.name}</Subtype>
+		})
+	}
 	render() {
 		return <OverviewContainer className='overview'>
 			<Row>
@@ -16,8 +21,8 @@ class Overview extends Component {
 					<Title>National No</Title>
 				</Cell>
 				<Cell>
-					<Subtitle>{this.props.name}</Subtitle>
-					<Title>Name</Title>
+					<Subtitle>{this.renderAbilities()}</Subtitle>
+					<Title>Ability</Title>
 				</Cell>
 				<Cell>
 					<Subtitle> {this.renderTypes()} </Subtitle>
