@@ -1,4 +1,4 @@
-import { 
+import {
 	RECEIVE_POKEMON_STATS,
 	RECEIVE_POKEMON_PROFILE_SUCCESS,
 	RECEIVE_POKEMON_PROFILE_FAILURE,
@@ -6,13 +6,13 @@ import {
 
 const initialState = {
 	receiveProfileSuccess: false,
-	pendingProfile: false, 
+	pendingProfile: false,
 	overview: {
 		id: 0,
 		name: '',
-		height: '',
-		weight: '',
-		baseExperience: ''
+		height: 0,
+		weight: 0,
+		baseExperience: 0
 	},
 	stats: {
 		hp: 0,
@@ -50,7 +50,7 @@ export default(state = initialState, { type, data }) => {
 			const abilities = data.abilities;
 			const moves = data.moves;
 			const evolutions = data.evolutions;
-			return { 
+			return {
 				...state,
 				receiveProfileSuccess,
 				overview,

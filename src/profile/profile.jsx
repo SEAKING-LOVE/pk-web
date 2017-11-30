@@ -4,6 +4,8 @@ import Stats from './stats/stats.container.jsx';
 import Moves from './moves/moves.container.jsx';
 import Evolution from './evolution/evolution.container.jsx';
 
+import { TabContainer, TabHeader, activeTab } from './profile.styles.jsx';
+
 class Profile extends Component {
 	constructor(props) {
 		super(props);
@@ -23,23 +25,23 @@ class Profile extends Component {
 	componentWillReceiveProps(nextProps) {
 		if(this.props.selectedId !== nextProps.selectedId) {
 			this.props.requestPokemonProfile(this.props.selectedId);
-		}	
+		}
 	}
 	renderTabs() {
 		const tabs = this.tabs.map((tab, index) => {
 			return this.renderTab(tab.label, index);
 		});
-		return <div className='tabs'>
+		return <TabContainer className='tabs'>
 			{tabs}
-		</div>;
+		</TabContainer>;
 	}
 	renderTab(label, index) {
-		return <div
+		return <TabHeader
 			key={index}
 			onClick={() => this.selectTab(index)}
-			className={this.state.tabIndex === index ? 'active' : ''}>
+			className={this.state.tabIndex === index ? activeTab : ''}>
 			{label}
-		</div>
+		</TabHeader>
 	}
 	selectTab(index) {
 		this.setState({ tabIndex: index });

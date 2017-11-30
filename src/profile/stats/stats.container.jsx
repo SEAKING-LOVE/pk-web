@@ -3,12 +3,26 @@ import Stats from './stats.jsx';
 
 const stateToProps = (state) => ({
 	selectedId: state.list.selectedId,
-	hp: state.profile.stats.hp,
-	attack: state.profile.stats.attack,
-	defense: state.profile.stats.defense,
-	specialAttack: state.profile.stats.specialAttack,
-	specialDefense: state.profile.stats.specialDefense,
-	speed: state.profile.stats.speed,
+	stats: [
+		{ 'name': 'hp',
+		 	'value': state.profile.stats.hp
+		},
+		{ 'name': 'attack',
+		 	'value': state.profile.stats.attack
+		},
+		{ 'name': 'defense',
+		 	'value': state.profile.stats.defense
+		},
+		{ 'name': 'sp atk',
+		 	'value': state.profile.stats.specialAttack
+		},
+		{ 'name': 'sp def',
+		 	'value': state.profile.stats.specialDefense
+		},
+		{ 'name': 'speed',
+		 	'value': state.profile.stats.speed
+		},
+	],
 });
 
 const dispatchToProps = (dispatch) => {
