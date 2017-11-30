@@ -1,6 +1,8 @@
 const Fonts = {
-	titleFamily: `'Dosis', sans-serif`,
-	bodyFamily: `'Concert One', cursive`,
+	titleFamily: `'Montserrat', sans-serif`,
+	bodyFamily: `'Montserrat', sans-serif`,
+	bold: 400,
+	thin: 300,
 	size: {
 
 	},

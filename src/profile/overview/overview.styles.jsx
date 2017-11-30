@@ -2,7 +2,7 @@ import styled from 'react-emotion';
 import { Colors, Fonts } from '../../themes/themes.js';
 
 export const OverviewContainer = styled('div')`
-  background-image: ${Colors.gradient.pink};
+  background-color: ${Colors.pink};
   padding: 15px 20px;
   color: white;
   border-radius: 0.4em;
@@ -20,7 +20,7 @@ export const Cell = styled('div')`
 `;
 
 export const Title = styled('div')`
-  font-weight: 700;
+  font-weight: ${Fonts.bold};
   font-size: 1.2em;
   font-family: ${Fonts.titleFamily};
 `;

@@ -1,4 +1,5 @@
 import styled, { css } from 'react-emotion';
+import { Colors, Fonts } from '../themes/themes.js'; 
 
 export const TabContainer = styled('div')`
   display: flex;
@@ -13,8 +14,8 @@ export const TabHeader = styled('div')`
   flex: 1;
   padding: 20px 30px;
   text-transform: uppercase;
-  font-family: 'Dosis', sans-serif;
-  font-weight: 700;
+  font-family: ${Fonts.bodyFamily};
+  font-weight: ${Fonts.bold};
   color: white;
 
   &:not(:last-child) {

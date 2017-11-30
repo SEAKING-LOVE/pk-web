@@ -1,4 +1,5 @@
 import styled from 'react-emotion';
+import { Colors, Fonts } from '../../themes/themes.js';
 
 export const StatsContainer = styled('div')`
   background-image: linear-gradient(-225deg, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
@@ -25,12 +26,12 @@ export const ProgressName = styled('div')`
   flex: 1;
   text-align: right;
   text-transform: uppercase;
-  font-family: 'Dosis', sans-serif;
-  font-weight: 700;
+  font-family: ${Fonts.titleFamily};
+  font-weight: ${Fonts.bold};
 `;
 
 export const ProgressBar = styled('div')`
-  font-family: 'Concert One', cursive;
+  font-family: ${Fonts.bodyFamily};
   flex: 11;
 `;
 
