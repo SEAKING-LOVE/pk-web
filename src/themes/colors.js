@@ -1,3 +1,5 @@
+// https://www.css-gradient.com/
+
 const Colors = {
 	white: '#fff',
 	black: '',
