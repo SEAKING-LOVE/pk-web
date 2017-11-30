@@ -10,7 +10,7 @@ class Profile extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			tabIndex: 0
+			tabIndex: 1
 		};
 		this.tabs = [
 			{ label: 'overview', component: <Overview /> },
