@@ -3,26 +3,35 @@ import { Colors, Fonts } from '../themes/themes.js';
 
 export const TabContainer = styled('div')`
   display: flex;
+  box-sizing: border-box;
   margin-bottom: 10px;
+  padding: 0.4em;
+  height: 3em;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0px 3px 5px 2px ${Colors.shadow};
 `;
 
 export const TabHeader = styled('div')`
-  border-radius: 0.4em;
-  background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
-  text-align: center;
-  justify-content: space-between;
   flex: 1;
-  padding: 20px 30px;
-  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
   font-family: ${Fonts.bodyFamily};
   font-weight: ${Fonts.bold};
-  color: white;
-
+  text-transform: uppercase;
+  color: ${Colors.darkGrey};
+  border-bottom: solid transparent 0.2em;
+  border-top: solid transparent 0.2em;
+  cursor: pointer;
+  transition: all 0.3s;
   &:not(:last-child) {
     margin-right: 10px;
   }
 `;
 
 export const activeTab = css`
-  background-image: linear-gradient(-45deg, #5271C4 0%, #B19FFF 48%, #ECA1FE 100%);
+  color: ${Colors.pink};
+  border-bottom-color: ${Colors.pink};
 `;
