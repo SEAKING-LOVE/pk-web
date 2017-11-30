@@ -1,55 +1,60 @@
-import styled from 'react-emotion';
+import styled, { css } from 'react-emotion';
 import { Colors, Fonts } from '../../themes/themes.js';
 
 export const StatsContainer = styled('div')`
-  background-image: linear-gradient(-225deg, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
-  padding: 15px 20px;
-  color: white;
-  border-radius: 0.4em;
+	background-color: ${Colors.white};
+	padding: 10px;
+	color: ${Colors.darkGrey};
 `;
 
 export const Row = styled('div')`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+	display: grid;
+	frid-auto-flow: column;
+	grid-template-columns: 5em 1fr 5em;
+	justify-content: space-evenly;
+	align-items: center;
+	margin: 0.3em;
 
-  > div {
-    padding: 5px 10px;
-  }
+	> div {
+		box-sizing: border-box;
+		padding: 0.2em;
+	}
 `;
 
 export const Divider = styled('hr')`
-  border-color: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+	border-color: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 `;
 
-export const ProgressName = styled('div')`
-  flex: 1;
-  text-align: right;
-  text-transform: uppercase;
-  font-family: ${Fonts.titleFamily};
-  font-weight: ${Fonts.bold};
+export const Label = styled('div')`
+	flex: 1;
+	text-align: left;
+	text-transform: uppercase;
+	font-family: ${Fonts.titleFamily};
+	font-weight: ${Fonts.bold};
+	letter-spacing: 2px;
+	font-size: 0.8em;
 `;
 
+// background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 export const ProgressBar = styled('div')`
-  font-family: ${Fonts.bodyFamily};
-  flex: 11;
+	flex: 10;
+	height: 1.2em;
+	border-radius: 1em;
 `;
 
 export const Background = styled('div')`
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-  border-radius: 0.2em;
+	height: inherit;
+	background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+	border-radius: 1em;
 `;
 
 export const Bar = styled('div')`
-  background-image: linear-gradient(to right, #667eea 0%, #764ba2 100%);
-  padding: 5px 10px;
-  border-top-left-radius: 0.2em;
-  border-bottom-left-radius: 0.2em;
+	height: inherit;
+	background-color: ${Colors.lightBlue};
+	border-radius: 1em;
+	color: white;
 `;
 
-export const TotalBar = styled('div')`
-  background-image: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%);
-  padding: 5px 10px;
-  border-top-left-radius: 0.2em;
-  border-bottom-left-radius: 0.2em;
+export const totalBar = css`
+	background-color: ${Colors.pink};
 `;

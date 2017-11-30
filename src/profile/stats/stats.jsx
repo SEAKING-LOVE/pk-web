@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StatsContainer, Row, Background, Bar, TotalBar, Divider, ProgressName, ProgressBar } from './stats.styles.jsx'
+import { StatsContainer, Row, Background, Bar, totalBar, Divider, Label, ProgressBar } from './stats.styles.jsx'
 
 class Stats extends Component {
 	renderStatBars() {
@@ -10,31 +10,26 @@ class Stats extends Component {
 	renderStatBar(label, value) {
 		const width = `${value * 100 / 255}%`;
 		return <Row key={label}>
-				<ProgressName> {label} </ProgressName>
+				<Label> {label} </Label>
 				<ProgressBar>
-					<Background>
-						<Bar style={{ width }}> {value}</Bar>
-					</Background>
+					<Bar style={{ width }}> </Bar>
 				</ProgressBar>
+				<Label>{value}</Label>
 			</Row>
 	}
 	renderTotalSection() {
+		const totalStats = this.sumStats();
 		return <Row>
-			<ProgressName>
-				Total
-			</ProgressName>
+			<Label>Total</Label>
 			<ProgressBar>
-				<Background>
-					{this.renderTotalBar()}
-				</Background>
+				{this.renderTotalBar(totalStats)}
 			</ProgressBar>
+			<Label>{totalStats}</Label>
 		</Row>
 	}
-	renderTotalBar() {
-		const totalStats = this.sumStats();
-		return <TotalBar style={{width: totalStats * 100 / 1530 + '%'}}>
-			{totalStats}
-		</TotalBar>;
+	renderTotalBar(total) {
+		const width = `${total * 100 / 1530}%`;
+		return <Bar style={{width}} className={totalBar} />
 	}
 	sumStats() {
 		return this.props.stats.reduce((acc, curr) => {
@@ -42,8 +37,6 @@ class Stats extends Component {
 		}, 0);
 	}
 	render() {
-		let totalStats = 0;
-
 		return <StatsContainer className='stats'>
 			{this.renderStatBars()}
 			<Divider />
