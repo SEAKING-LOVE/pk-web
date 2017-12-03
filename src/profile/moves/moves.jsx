@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Nav } from './moves.styles.jsx'
 
 class Moves extends Component {
 	constructor(props) {
@@ -17,9 +18,9 @@ class Moves extends Component {
 		const tabs = this.tabs.map((tab, index) => {
 			return this.renderTab(tab.label, index);
 		});
-		return <div className='tabs'>
+		return <Nav>
 			{tabs}
-		</div>
+		</Nav>
 	}
 	renderTab(label, index) {
 		return <div
