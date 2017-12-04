@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Nav } from './moves.styles.jsx'
+import Move from './move.jsx'
 
 class Moves extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			tabIndex: 0
+			tabIndex: 3
 		};
 		this.tabs = [
 			{label: 'machine', data: props.machine},
@@ -17,9 +19,9 @@ class Moves extends Component {
 		const tabs = this.tabs.map((tab, index) => {
 			return this.renderTab(tab.label, index);
 		});
-		return <div className='tabs'>
+		return <Nav>
 			{tabs}
-		</div>
+		</Nav>
 	}
 	renderTab(label, index) {
 		return <div
@@ -33,7 +35,19 @@ class Moves extends Component {
 		this.setState({ tabIndex: index });
 	}
 	renderMoves() {
-		return JSON.stringify(this.tabs[this.state.tabIndex].data);
+		const moves = this.tabs[this.state.tabIndex].data.map((move, index) => {
+			return this.renderMove(move, index); 
+		});	
+		return <div>
+			{moves}
+		</div>
+	}
+	renderMove(move, index) {
+		return <Move
+			key={index}
+			id={move.id}
+			level={move.level}
+			name={move.name}/>
 	}
 	render() {
 		return <div className='moves'>
