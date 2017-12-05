@@ -12,7 +12,11 @@ const initialState = {
 		name: '',
 		height: 0,
 		weight: 0,
-		baseExperience: 0
+		baseExperience: 0,
+		artwork: '',
+		sprite: '',
+		cry: '',
+		fottprint: null
 	},
 	stats: {
 		hp: 0,
