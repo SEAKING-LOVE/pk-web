@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { leadingZeros } from '../../utils.js';
+import { Container, Artwork } from './spriteCard.styles.jsx';
+
 
 class SpriteCard extends Component {
 	renderHeader() {
-		return <div>
-			{leadingZeros(this.props.id)} {this.props.name}
-			{this.renderTypes()}
-		</div>
+		return <div>{this.props.name}</div>
+	}
+	renderNationalNo() {
+		return <div>#{leadingZeros(this.props.id)}</div>
 	}
 	renderTypes() {
 		const types = this.props.types.map((type, index) => {
@@ -15,17 +17,17 @@ class SpriteCard extends Component {
 		return <div>{types}</div>
 	}
 	renderArtwork() {
-		return <img src={this.props.artwork} alt={`${this.props.name} artwork`}/>
+		return <Artwork src={this.props.artwork} alt={`${this.props.name} artwork`}/>
 	}
 	renderSprite() {
 		return <img src={this.props.sprite} alt={`${this.props.name} sprite`}/>
 	}
 	render() {
-		return <div>
+		return <Container>
 			{this.renderHeader()}
 			{this.renderArtwork()}
 			{this.renderSprite()}
-		</div>
+		</Container>
 	}
 }
 
