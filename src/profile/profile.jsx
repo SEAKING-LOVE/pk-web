@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SpriteCard from './spriteCard/spriteCard.container.jsx';
 import Overview from './overview/overview.container.jsx';
 import Stats from './stats/stats.container.jsx';
 import Moves from './moves/moves.container.jsx';
@@ -47,12 +48,17 @@ class Profile extends Component {
 		this.setState({ tabIndex: index });
 	}
 	renderContent() {
+		return <div>
+			<SpriteCard />
+			{this.renderPkDetails()}
+		</div>
+	}
+	renderPkDetails() {
 		return this.tabs[this.state.tabIndex].component;
 	}
 	render() {
 		return <div className='profile'>
 			<h1> profile component </h1>
-			{this.renderTabs()}
 			{this.renderContent()}
 		</div>
 	}
