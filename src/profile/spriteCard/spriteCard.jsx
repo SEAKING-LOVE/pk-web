@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { leadingZeros } from '../../utils.js';
-import { Container, Artwork, Title, NationalNo } from './spriteCard.styles.jsx';
+import { Container, Artwork, Title, NationalNo, Footer } from './spriteCard.styles.jsx';
 
 
 class SpriteCard extends Component {
@@ -8,9 +8,9 @@ class SpriteCard extends Component {
 		return <Title>{this.props.name}</Title>
 	}
 	renderFooter() {
-		return <div>
+		return <Footer>
 			{this.renderNationalNo()}
-		</div>	
+		</Footer>	
 	}
 	renderNationalNo() {
 		return <NationalNo>#{leadingZeros(this.props.id)}</NationalNo>
