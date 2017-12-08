@@ -7,9 +7,9 @@ export const TabContainer = styled('div')`
   margin-bottom: 10px;
   padding: 0.4em;
   height: 3em;
-  max-width: 500px;
-  width: 90%;
+  width: 100%;
   box-shadow: 0px 3px 5px 2px ${Colors.shadow};
+  border-radius: 0.4em;
 `;
 
 export const TabHeader = styled('div')`

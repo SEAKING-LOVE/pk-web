@@ -11,7 +11,9 @@ const Colors = {
 
 	shadow: 'rgba(0,0,0,0.26)',
 	gradient: {
-		pink: 'linear-gradient(to bottom, #db3463, #d92a47);'
+		pink: 'linear-gradient(to bottom, #db3463, #d92a47);',
+		warm: 'linear-gradient(to left, #ff7e5f, #feb47b);',
+		cool: 'linear-gradient(to right, #00c6ff, #2580ef);'
 	},
 	types: {
 		normal: (alpha=1.0) => { 

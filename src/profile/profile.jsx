@@ -25,7 +25,7 @@ class Profile extends Component {
 	}
 	componentWillReceiveProps(nextProps) {
 		if(this.props.selectedId !== nextProps.selectedId) {
-			this.props.requestPokemonProfile(this.props.selectedId);
+			this.props.requestPokemonProfile(nextProps.selectedId);
 		}
 	}
 	renderTabs() {
@@ -50,6 +50,7 @@ class Profile extends Component {
 	renderContent() {
 		return <div>
 			<SpriteCard />
+			{this.renderTabs()}
 			{this.renderPkDetails()}
 		</div>
 	}

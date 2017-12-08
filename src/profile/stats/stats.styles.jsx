@@ -2,9 +2,10 @@ import styled, { css } from 'react-emotion';
 import { Colors, Fonts } from '../../themes/themes.js';
 
 export const StatsContainer = styled('div')`
-	background-color: ${Colors.white};
-	padding: 10px;
+	background-image: ${Colors.gradient.pink};
+	padding: 15px 20px;
 	color: ${Colors.darkGrey};
+	border-radius: 0.4em;
 `;
 
 export const Row = styled('div')`
@@ -22,7 +23,7 @@ export const Row = styled('div')`
 `;
 
 export const Divider = styled('hr')`
-	border-color: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+	border-color: ${Colors.white};
 `;
 
 export const Label = styled('div')`
@@ -31,6 +32,7 @@ export const Label = styled('div')`
 	text-transform: uppercase;
 	font-family: ${Fonts.titleFamily};
 	font-weight: ${Fonts.bold};
+  	color: ${Colors.white};
 	letter-spacing: 2px;
 	font-size: 0.8em;
 `;
@@ -50,11 +52,11 @@ export const Background = styled('div')`
 
 export const Bar = styled('div')`
 	height: inherit;
-	background-color: ${Colors.lightBlue};
+	background-image: ${Colors.gradient.cool};
 	border-radius: 1em;
 	color: white;
 `;
 
 export const totalBar = css`
-	background-color: ${Colors.pink};
+	background-image: ${Colors.gradient.warm};
 `;

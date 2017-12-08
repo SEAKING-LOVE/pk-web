@@ -12,6 +12,7 @@ export const Container = styled('div')`
 	background: radial-gradient(ellipse at center bottom,#2cc7d0 10%,#1570ca 50%);
 	border-radius: 0.5em;
 	color: ${Colors.white};
+  	box-shadow: 0px 3px 5px 2px ${Colors.shadow};
 `;
 
 export const Title = styled('div')`
@@ -22,8 +23,8 @@ export const Title = styled('div')`
 `;
 
 export const Artwork = styled.img`
-	padding: 2em;
-	width: 20%;
+	padding: 2em 2em 0em;
+	width: 200px;
 	height: auto;
 `;
 
@@ -32,6 +33,11 @@ export const Footer = styled('div')`
 	width: 100%;
 `;
 
+export const Sprite = styled.img`
+	padding: 0.5em;
+	image-rendering: pixelated;
+	height: 100px;
+`;
 
 export const NationalNo = styled('div')`
 	padding: 0.5em;

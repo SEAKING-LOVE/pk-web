@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { leadingZeros } from '../../utils.js';
-import { Container, Artwork, Title, NationalNo, Footer } from './spriteCard.styles.jsx';
+import { Container, Artwork, Title, NationalNo, Sprite, Footer } from './spriteCard.styles.jsx';
 
 
 class SpriteCard extends Component {
@@ -25,7 +25,7 @@ class SpriteCard extends Component {
 		return <Artwork src={this.props.artwork} alt={`${this.props.name} artwork`}/>
 	}
 	renderSprite() {
-		return <img src={this.props.sprite} alt={`${this.props.name} sprite`}/>
+		return <Sprite src={this.props.sprite} alt={`${this.props.name} sprite`}/>
 	}
 	render() {
 		return <Container>
