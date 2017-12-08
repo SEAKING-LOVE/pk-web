@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import Stats from '../stats/stats.container.jsx';
 import { leadingZeros } from '../../utils.js';
-import { OverviewContainer, Row, Cell, Title, Subtitle, Subtype, Subnumber } from './overview.styles.jsx'
+import { OverviewTable, Row, Cell, Title, Subtitle, Subtype, Subnumber } from './overview.styles.jsx'
 
 class Overview extends Component {
 	renderTypes() {
@@ -13,8 +14,8 @@ class Overview extends Component {
 			return <Subtype key={ability.id}>{ability.name}</Subtype>
 		})
 	}
-	render() {
-		return <OverviewContainer className='overview'>
+	renderOverviewTable() {
+		return <OverviewTable className='overview'>
 			<Row>
 				<Cell>
 					<Subtitle>{leadingZeros(this.props.id)}</Subtitle>
@@ -43,7 +44,13 @@ class Overview extends Component {
 					<Title>Base Exp</Title>
 				</Cell>
 			</Row>
-		</OverviewContainer>
+		</OverviewTable>
+	}
+	render() {
+		return <div>
+			{this.renderOverviewTable()}
+			<Stats/>
+		</div>
 	}
 }
 

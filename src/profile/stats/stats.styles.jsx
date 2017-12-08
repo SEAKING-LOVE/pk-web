@@ -2,10 +2,11 @@ import styled, { css } from 'react-emotion';
 import { Colors, Fonts } from '../../themes/themes.js';
 
 export const StatsContainer = styled('div')`
-	background-image: ${Colors.gradient.pink};
+	background-color: ${Colors.white};
 	padding: 15px 20px;
 	color: ${Colors.darkGrey};
 	border-radius: 0.4em;
+	box-shadow: 0px 3px 5px 2px ${Colors.shadow};
 `;
 
 export const Row = styled('div')`
@@ -32,12 +33,10 @@ export const Label = styled('div')`
 	text-transform: uppercase;
 	font-family: ${Fonts.titleFamily};
 	font-weight: ${Fonts.bold};
-  	color: ${Colors.white};
 	letter-spacing: 2px;
 	font-size: 0.8em;
 `;
 
-// background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 export const ProgressBar = styled('div')`
 	flex: 10;
 	height: 1.2em;
@@ -55,6 +54,7 @@ export const Bar = styled('div')`
 	background-image: ${Colors.gradient.cool};
 	border-radius: 1em;
 	color: white;
+	transition: all 0.3s;
 `;
 
 export const totalBar = css`
