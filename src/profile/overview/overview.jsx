@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Stats from '../stats/stats.container.jsx';
 import { leadingZeros } from '../../utils.js';
-import { OverviewTable, Row, Cell, Title, Subtitle, Subtype, Subnumber } from './overview.styles.jsx'
+import { OverviewTable, Row, Cell, Title, Subtitle } from './overview.styles.jsx'
 
 class Overview extends Component {
 	renderAbilities() {
 		return this.props.abilities.map( ability => {
-			return <Subtype key={ability.id}>{ability.name}</Subtype>
+			return <div key={ability.id}>{ability.name}</div>
 		})
 	}
 	renderOverviewTable() {

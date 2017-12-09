@@ -37,19 +37,3 @@ export const Subtitle = styled('div')`
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 2px;
 `;
-
-export const Subtype = styled('div')`
-  text-transform: capitalize;
-  font-family: ${Fonts.bodyFamily};
-  display: inline;
-
-  &:not(:first-child) {
-    &:before {
-      content: " / "
-    }
-  }
-`;
-
-export const Subnumber = styled('div')`
-  font-family: ${Fonts.bodyFamily};
-`;
