@@ -12,6 +12,7 @@ export const OverviewTable = styled('div')`
 
 export const Row = styled('div')`
   display: flex;
+  align-items: flex-end;
   justify-content: space-evenly;
 `;
 

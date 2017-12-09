@@ -13,6 +13,8 @@ const initialState = {
 		height: 0,
 		weight: 0,
 		baseExperience: 0,
+		baseHappiness: 0,
+		captureRate: 0,
 		artwork: '',
 		sprite: '',
 		cry: '',

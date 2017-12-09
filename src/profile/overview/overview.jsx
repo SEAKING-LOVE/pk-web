@@ -4,11 +4,6 @@ import { leadingZeros } from '../../utils.js';
 import { OverviewTable, Row, Cell, Title, Subtitle, Subtype, Subnumber } from './overview.styles.jsx'
 
 class Overview extends Component {
-	renderTypes() {
-		return this.props.types.map( type => {
-			return <Subtype key={type.id}>{type.name}</Subtype>;
-		});
-	}
 	renderAbilities() {
 		return this.props.abilities.map( ability => {
 			return <Subtype key={ability.id}>{ability.name}</Subtype>
@@ -26,8 +21,8 @@ class Overview extends Component {
 					<Title>Ability</Title>
 				</Cell>
 				<Cell>
-					<Subtitle> {this.renderTypes()} </Subtitle>
-					<Title>Type</Title>
+					<Subtitle> {this.props.baseHappiness} </Subtitle>
+					<Title>Base Happiness</Title>
 				</Cell>
 			</Row>
 			<Row>
