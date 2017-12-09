@@ -15,7 +15,6 @@ class Profile extends Component {
 		};
 		this.tabs = [
 			{ label: 'overview', component: <Overview /> },
-			{ label: 'stats', component: <Stats /> },
 			{ label: 'moves', component: <Moves /> },
 			{ label: 'evolution', component: <Evolution /> },
 		];

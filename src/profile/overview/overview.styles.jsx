@@ -1,16 +1,18 @@
 import styled from 'react-emotion';
 import { Colors, Fonts } from '../../themes/themes.js';
 
-export const OverviewContainer = styled('div')`
+export const OverviewTable = styled('div')`
   background-image: ${Colors.gradient.pink};
   padding: 15px 20px;
   color: ${Colors.white};
   border-radius: 0.4em;
   box-shadow: 0px 3px 5px 2px ${Colors.shadow};
+  margin-bottom: 1em;
 `;
 
 export const Row = styled('div')`
   display: flex;
+  align-items: flex-end;
   justify-content: space-evenly;
 `;
 
@@ -34,20 +36,4 @@ export const Subtitle = styled('div')`
   font-family: ${Fonts.bodyFamily};
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 2px;
-`;
-
-export const Subtype = styled('div')`
-  text-transform: capitalize;
-  font-family: ${Fonts.bodyFamily};
-  display: inline;
-
-  &:not(:first-child) {
-    &:before {
-      content: " / "
-    }
-  }
-`;
-
-export const Subnumber = styled('div')`
-  font-family: ${Fonts.bodyFamily};
 `;

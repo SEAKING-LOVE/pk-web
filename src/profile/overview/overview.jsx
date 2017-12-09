@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
+import Stats from '../stats/stats.container.jsx';
 import { leadingZeros } from '../../utils.js';
-import { OverviewContainer, Row, Cell, Title, Subtitle, Subtype, Subnumber } from './overview.styles.jsx'
+import { OverviewTable, Row, Cell, Title, Subtitle } from './overview.styles.jsx'
 
 class Overview extends Component {
-	renderTypes() {
-		return this.props.types.map( type => {
-			return <Subtype key={type.id}>{type.name}</Subtype>;
-		});
-	}
 	renderAbilities() {
 		return this.props.abilities.map( ability => {
-			return <Subtype key={ability.id}>{ability.name}</Subtype>
+			return <div key={ability.id}>{ability.name}</div>
 		})
 	}
-	render() {
-		return <OverviewContainer className='overview'>
+	renderOverviewTable() {
+		return <OverviewTable className='overview'>
 			<Row>
 				<Cell>
 					<Subtitle>{leadingZeros(this.props.id)}</Subtitle>
@@ -25,8 +21,8 @@ class Overview extends Component {
 					<Title>Ability</Title>
 				</Cell>
 				<Cell>
-					<Subtitle> {this.renderTypes()} </Subtitle>
-					<Title>Type</Title>
+					<Subtitle> {this.props.baseHappiness} </Subtitle>
+					<Title>Base Happiness</Title>
 				</Cell>
 			</Row>
 			<Row>
@@ -43,7 +39,13 @@ class Overview extends Component {
 					<Title>Base Exp</Title>
 				</Cell>
 			</Row>
-		</OverviewContainer>
+		</OverviewTable>
+	}
+	render() {
+		return <div>
+			{this.renderOverviewTable()}
+			<Stats/>
+		</div>
 	}
 }
 
