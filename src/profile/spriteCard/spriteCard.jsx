@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { leadingZeros } from '../../utils.js';
-import { Container, Artwork, Title, NationalNo, Sprite, Footer } from './spriteCard.styles.jsx';
+import { Container, Artwork, Title, Sprite, Footer, NationalNo, Footprint } from './spriteCard.styles.jsx';
 
 
 class SpriteCard extends Component {
@@ -10,6 +10,7 @@ class SpriteCard extends Component {
 	renderFooter() {
 		return <Footer>
 			{this.renderNationalNo()}
+			{this.renderFootprint()}
 		</Footer>	
 	}
 	renderNationalNo() {
@@ -26,6 +27,12 @@ class SpriteCard extends Component {
 	}
 	renderSprite() {
 		return <Sprite src={this.props.sprite} alt={`${this.props.name} sprite`}/>
+	}
+	renderFootprint() {
+		if(!this.props.footprint) return;
+		return <Footprint>
+			<img src={this.props.footprint} alt={`${this.props.name} footprint`}/>
+		</Footprint>
 	}
 	render() {
 		return <Container>

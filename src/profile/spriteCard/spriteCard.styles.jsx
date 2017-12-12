@@ -1,6 +1,8 @@
 import styled, { css } from 'react-emotion';
 import { Colors, Fonts } from '../../themes/themes.js';
 
+const badgeHeight = '1.5em';
+
 export const Container = styled('div')`
 	margin-bottom: 1em;
 	padding: 1em;
@@ -41,8 +43,28 @@ export const Sprite = styled.img`
 
 export const NationalNo = styled('div')`
 	padding: 0.5em;
+	height: ${badgeHeight};
 	border-radius: 2em;
 	background-color: ${Colors.white};
 	color: ${Colors.black};
 	box-shadow: 3px 3px 0.5em ${Colors.shadow};
 `;
+
+export const Footprint = styled('div')`
+	padding: 0.5em;
+	height: ${badgeHeight};
+	width: ${badgeHeight};
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: ${Colors.white};
+	box-shadow: 3px 3px 0.5em ${Colors.shadow};
+	
+	img {
+		height: 100%;
+		width: auto;
+	}
+
+`;
+
