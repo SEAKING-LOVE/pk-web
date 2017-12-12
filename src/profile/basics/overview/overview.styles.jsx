@@ -1,5 +1,5 @@
-import styled from 'react-emotion';
-import { Colors, Fonts } from '../../themes/themes.js';
+import styled, { css } from 'react-emotion';
+import { Colors, Fonts } from '../../../themes/themes.js';
 
 export const OverviewTable = styled('div')`
   background-image: ${Colors.gradient.pink};
@@ -17,7 +17,7 @@ export const Row = styled('div')`
 `;
 
 export const Cell = styled('div')`
-  padding: 5px 10px;
+  padding: 10px;
   text-align: left;
   flex: 1;
 `;
@@ -25,7 +25,7 @@ export const Cell = styled('div')`
 export const Title = styled('div')`
   margin-top: 0.2em;
   font-weight: ${Fonts.bold};
-  font-size: 0.6em;
+  font-size: 0.7em;
   font-family: ${Fonts.titleFamily};
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -36,4 +36,8 @@ export const Subtitle = styled('div')`
   font-family: ${Fonts.bodyFamily};
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 2px;
+`;
+
+export const smallSubtitle = css`
+  font-size: 0.7em;
 `;

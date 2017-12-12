@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import { requestPokemonProfile } from '../profile.actions.js';
+import { requestPokemonProfile } from '../../profile.actions.js';
 import Overview from './overview.jsx';
 
 const mapStateToProps = (state) => ({
-	id: state.profile.overview.id,
 	height: state.profile.overview.height,
 	weight: state.profile.overview.weight,
+	captureRate: state.profile.overview.captureRate,
 	baseExperience: state.profile.overview.baseExperience,
 	baseHappiness: state.profile.overview.baseHappiness,
 	abilities: state.profile.abilities
