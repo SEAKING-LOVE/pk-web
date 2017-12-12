@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Stats from '../stats/stats.container.jsx';
-import { leadingZeros } from '../../utils.js';
+import { leadingZeros } from '../../../utils.js';
 import { OverviewTable, Row, Cell, Title, Subtitle } from './overview.styles.jsx'
 
 class Overview extends Component {
@@ -42,10 +41,7 @@ class Overview extends Component {
 		</OverviewTable>
 	}
 	render() {
-		return <div>
-			{this.renderOverviewTable()}
-			<Stats/>
-		</div>
+		return this.renderOverviewTable();
 	}
 }
 

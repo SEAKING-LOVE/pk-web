@@ -1,5 +1,5 @@
 import styled from 'react-emotion';
-import { Colors, Fonts } from '../../themes/themes.js';
+import { Colors, Fonts } from '../../../themes/themes.js';
 
 export const OverviewTable = styled('div')`
   background-image: ${Colors.gradient.pink};

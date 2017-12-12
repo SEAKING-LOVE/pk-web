@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SpriteCard from './spriteCard/spriteCard.container.jsx';
-import Overview from './overview/overview.container.jsx';
-import Stats from './stats/stats.container.jsx';
+import Basics from './basics/basics.container.jsx';
 import Moves from './moves/moves.container.jsx';
 import Evolution from './evolution/evolution.container.jsx';
 
@@ -14,7 +13,7 @@ class Profile extends Component {
 			tabIndex: 0
 		};
 		this.tabs = [
-			{ label: 'overview', component: <Overview /> },
+			{ label: 'summary', component: <Basics /> },
 			{ label: 'moves', component: <Moves /> },
 			{ label: 'evolution', component: <Evolution /> },
 		];

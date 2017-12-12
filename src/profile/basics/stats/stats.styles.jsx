@@ -1,5 +1,5 @@
 import styled, { css } from 'react-emotion';
-import { Colors, Fonts } from '../../themes/themes.js';
+import { Colors, Fonts } from '../../../themes/themes.js';
 
 export const StatsContainer = styled('div')`
 	background-color: ${Colors.white};
