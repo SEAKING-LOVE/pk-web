@@ -48,14 +48,8 @@ export const Footer = styled('div')`
 	}
 `;
 
-export const Sprite = styled.img`
-	padding: 0.5em;
-	image-rendering: pixelated;
-	height: 2.8em;
-`;
-
 export const NationalNo = styled('div')`
-	padding: 0.5em;
+	padding: 0.5em 1em;
 	height: ${badgeHeight};
 	border-radius: 2em;
 	background-color: ${Colors.white};
@@ -65,8 +59,8 @@ export const NationalNo = styled('div')`
 
 export const Footprint = styled('div')`
 	padding: 0.5em;
-	height: ${largeBadgeHeight};
-	width: ${largeBadgeHeight};
+	height: ${badgeHeight};
+	width: ${badgeHeight};
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
@@ -75,7 +69,7 @@ export const Footprint = styled('div')`
 	box-shadow: 3px 3px 0.5em ${Colors.shadow};
 	
 	img {
-		height: 100%;
+		height: 110%;
 		width: auto;
 		image-rendering: pixelated;
 	}

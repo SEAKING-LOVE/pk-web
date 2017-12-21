@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Type from './type/type.jsx';
 import { leadingZeros } from '../../utils.js';
-import { Container, Artwork, Title, Sprite, Footer, NationalNo, Footprint } from './spriteCard.styles.jsx';
+import { Container, Artwork, Title, Footer, NationalNo, Footprint } from './spriteCard.styles.jsx';
 import { Icons } from '../../themes/themes.js';
 
 class SpriteCard extends Component {
@@ -13,9 +13,9 @@ class SpriteCard extends Component {
 			<div>
 				{this.renderNationalNo()}
 				{this.renderTypes()}
+
 			</div>
 			<div>
-				{this.renderSprite()}
 				{this.renderFootprint()}
 			</div>
 		</Footer>	
@@ -30,9 +30,6 @@ class SpriteCard extends Component {
 	}
 	renderArtwork() {
 		return <Artwork src={this.props.artwork} alt={`${this.props.name} artwork`}/>
-	}
-	renderSprite() {
-		return <Sprite src={this.props.sprite} alt={`${this.props.name} sprite`}/>
 	}
 	renderFootprint() {
 		if(!this.props.footprint) return;
