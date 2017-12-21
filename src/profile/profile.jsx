@@ -26,6 +26,13 @@ class Profile extends Component {
 			this.props.requestPokemonProfile(nextProps.selectedId);
 		}
 	}
+	renderProfile() {
+		if(!this.props.requestSuccess) return null; //having loading state
+		return <div className='profile'>
+			<h1> profile component </h1>
+			{this.renderContent()}
+		</div>
+	}
 	renderTabs() {
 		const tabs = this.tabs.map((tab, index) => {
 			return this.renderTab(tab.label, index);
@@ -56,10 +63,7 @@ class Profile extends Component {
 		return this.tabs[this.state.tabIndex].component;
 	}
 	render() {
-		return <div className='profile'>
-			<h1> profile component </h1>
-			{this.renderContent()}
-		</div>
+		return this.renderProfile();
 	}
 }
 

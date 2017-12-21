@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import Type from './type/type.jsx';
 import { leadingZeros } from '../../utils.js';
 import { Container, Artwork, Title, Sprite, Footer, NationalNo, Footprint } from './spriteCard.styles.jsx';
-
+import { Icons } from '../../themes/themes.js';
 
 class SpriteCard extends Component {
 	renderTitle() {
@@ -11,6 +12,7 @@ class SpriteCard extends Component {
 		return <Footer>
 			{this.renderNationalNo()}
 			{this.renderFootprint()}
+			{this.renderTypes()}
 		</Footer>	
 	}
 	renderNationalNo() {
@@ -18,7 +20,7 @@ class SpriteCard extends Component {
 	}
 	renderTypes() {
 		const types = this.props.types.map((type, index) => {
-			return <div key={index}>{type.name}</div>
+			return <Type key={index} name={type.name} />
 		});
 		return <div>{types}</div>
 	}
