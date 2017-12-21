@@ -3,8 +3,12 @@ import "regenerator-runtime/runtime";
 
 import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { REQUEST_ALL_POKEMON, REQUEST_UPDATE_SELECTED_ID } from './list.types.js';
-import { receiveAllPokemon, receiveUpdateSelectedId } from './list.actions.js';
+import { 
+	REQUEST_ALL_POKEMON,
+	REQUEST_UPDATE_SELECTED_ID,
+	REQUEST_UPDATE_FILTERED_LIST
+} from './list.types.js';
+import { receiveAllPokemon, receiveUpdateSelectedId, receiveFilteredList } from './list.actions.js';
 import { fetchData } from '../api.js';
 
 function* getAllPokemon(action) {
@@ -28,9 +32,18 @@ function* getUpdatedSelectedID(action) {
 	}
 }
 
+function* getFilteredList(action) {
+	try {
+		yield put(receiveFilteredList(action.list));
+	} catch(e) {
+		console.log(e);
+	}
+}
+
 export default function* listSaga() {
 	yield [
 		takeLatest(REQUEST_ALL_POKEMON, getAllPokemon),
-		takeLatest(REQUEST_UPDATE_SELECTED_ID, getUpdatedSelectedID)
+		takeLatest(REQUEST_UPDATE_SELECTED_ID, getUpdatedSelectedID),
+		takeLatest(REQUEST_UPDATE_FILTERED_LIST, getFilteredList),
 	]
 }

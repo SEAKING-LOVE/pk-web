@@ -8,7 +8,6 @@ const Colors = {
 	pink: '#d5224e',
 	lightBlue: '#28bcf0',
 
-
 	shadow: 'rgba(0,0,0,0.26)',
 	gradient: {
 		pink: 'linear-gradient(to bottom, #db3463, #d92a47);',
