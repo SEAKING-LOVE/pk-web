@@ -1,6 +1,9 @@
 import styled, { css } from 'react-emotion';
 import { Colors, Fonts } from '../../themes/themes.js';
 
+const badgeHeight = '1.5em';
+const largeBadgeHeight = '2em';
+
 export const Container = styled('div')`
 	margin-bottom: 1em;
 	padding: 1em;
@@ -31,18 +34,48 @@ export const Artwork = styled.img`
 export const Footer = styled('div')`
 	display: flex;
 	width: 100%;
-`;
-
-export const Sprite = styled.img`
-	padding: 0.5em;
-	image-rendering: pixelated;
-	height: 100px;
+	justify-content: space-between;
+	div {
+		display: flex;
+		div {
+			align-items: center;
+		}
+	}
+	div:first-child {
+		div:not(:first-child) {
+			margin-left: 1em;
+		}
+	}
 `;
 
 export const NationalNo = styled('div')`
-	padding: 0.5em;
+	padding: 0.5em 1em;
+	height: ${badgeHeight};
 	border-radius: 2em;
 	background-color: ${Colors.white};
 	color: ${Colors.black};
 	box-shadow: 3px 3px 0.5em ${Colors.shadow};
 `;
+
+export const Footprint = styled('div')`
+	padding: 0.5em;
+	height: ${badgeHeight};
+	width: ${badgeHeight};
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+	box-shadow: 3px 3px 0.5em ${Colors.shadow};
+	
+	img {
+		height: 110%;
+		width: auto;
+		image-rendering: pixelated;
+	}
+`;
+
+export const TypeContainer = styled('div')`
+	display-flex
+`;
+
