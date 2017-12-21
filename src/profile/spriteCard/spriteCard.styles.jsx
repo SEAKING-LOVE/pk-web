@@ -2,6 +2,7 @@ import styled, { css } from 'react-emotion';
 import { Colors, Fonts } from '../../themes/themes.js';
 
 const badgeHeight = '1.5em';
+const largeBadgeHeight = '2em';
 
 export const Container = styled('div')`
 	margin-bottom: 1em;
@@ -33,12 +34,24 @@ export const Artwork = styled.img`
 export const Footer = styled('div')`
 	display: flex;
 	width: 100%;
+	justify-content: space-between;
+	div {
+		display: flex;
+		div {
+			align-items: center;
+		}
+	}
+	div:first-child {
+		div:not(:first-child) {
+			margin-left: 1em;
+		}
+	}
 `;
 
 export const Sprite = styled.img`
 	padding: 0.5em;
 	image-rendering: pixelated;
-	height: 100px;
+	height: 2.8em;
 `;
 
 export const NationalNo = styled('div')`
@@ -52,19 +65,23 @@ export const NationalNo = styled('div')`
 
 export const Footprint = styled('div')`
 	padding: 0.5em;
-	height: ${badgeHeight};
-	width: ${badgeHeight};
+	height: ${largeBadgeHeight};
+	width: ${largeBadgeHeight};
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: ${Colors.white};
+	background-color: transparent;
 	box-shadow: 3px 3px 0.5em ${Colors.shadow};
 	
 	img {
 		height: 100%;
 		width: auto;
+		image-rendering: pixelated;
 	}
+`;
 
+export const TypeContainer = styled('div')`
+	display-flex
 `;
 

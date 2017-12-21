@@ -10,19 +10,23 @@ class SpriteCard extends Component {
 	}
 	renderFooter() {
 		return <Footer>
-			{this.renderNationalNo()}
-			{this.renderFootprint()}
-			{this.renderTypes()}
+			<div>
+				{this.renderNationalNo()}
+				{this.renderTypes()}
+			</div>
+			<div>
+				{this.renderSprite()}
+				{this.renderFootprint()}
+			</div>
 		</Footer>	
 	}
 	renderNationalNo() {
 		return <NationalNo>#{leadingZeros(this.props.id)}</NationalNo>
 	}
 	renderTypes() {
-		const types = this.props.types.map((type, index) => {
+		return this.props.types.map((type, index) => {
 			return <Type key={index} name={type.name} />
 		});
-		return <div>{types}</div>
 	}
 	renderArtwork() {
 		return <Artwork src={this.props.artwork} alt={`${this.props.name} artwork`}/>
@@ -40,7 +44,6 @@ class SpriteCard extends Component {
 		return <Container>
 			{this.renderTitle()}
 			{this.renderArtwork()}
-			{this.renderSprite()}
 			{this.renderFooter()}
 		</Container>
 	}
