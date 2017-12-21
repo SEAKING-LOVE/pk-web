@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Name } from './listItem.styles.jsx';
+import { Container, Name, sprite } from './listItem.styles.jsx';
 import { leadingZeros } from '../../utils.js';
+
 
 class ListItem extends Component {
 	static defaultProps = {
@@ -10,7 +11,9 @@ class ListItem extends Component {
 		onClick: () => {},
 	}
 	renderSprite() {
-		return <img src={this.props.sprite} alt={`${this.props.name} sprite`}/>
+		return <div className={`${sprite} pki n${this.props.id}`}>
+			
+		</div>
 	}
 	renderId() {
 		return <div>
@@ -23,7 +26,7 @@ class ListItem extends Component {
 		</Name>
 	}
 	render() {
-		return <Container onClick={this.props.onClick}>
+		return <Container className='listItem' onClick={this.props.onClick}>
 			{this.renderSprite()}
 			{this.renderId()}
 			{this.renderName()}

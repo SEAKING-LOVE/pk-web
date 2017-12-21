@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import ListItem from './listItem/listItem.jsx';
-import { ListContainer } from './list.styles.jsx';
+import { Container, ListContainer, SearchContainer, MenuToggler } from './list.styles.jsx';
 
 class List extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			searchString: '',
-			filteredList: []
+			filteredList: [],
+			open: true
 		};
 		this.handleSearch = this.handleSearch.bind(this);
 	}
@@ -18,6 +19,11 @@ class List extends Component {
 		if(nextProps.list.length > 0 && this.state.filteredList.length == 0) {
 			this.setState({ filteredList: nextProps.list });
 		}
+	}
+	renderMenuToggler() {
+		return <MenuToggler>
+			
+		</MenuToggler>
 	}
 	renderList() {
 		const listItems = this.state.filteredList.map((pk, index) => {
@@ -33,12 +39,12 @@ class List extends Component {
 		</ListContainer>
 	}
 	renderSearchField() {
-		return <div>
+		return <SearchContainer>
 			<input 
 			type='text'
 			placeholder='search'
 			onChange={this.handleSearch}/>
-		</div>
+		</SearchContainer>
 	}
 	handleSearch(e) {
 		const searchString = e.target.value;
@@ -48,10 +54,10 @@ class List extends Component {
 		this.setState({ filteredList });
 	}
 	render() {
-		return <div>
+		return <Container>
 			{this.renderSearchField()}
 			{this.renderList()}
-		</div>
+		</Container>
 	}
 }
 
