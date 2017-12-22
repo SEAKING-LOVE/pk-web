@@ -8,13 +8,18 @@ import { Fonts } from './themes/themes.js';
 
 const Body = styled('div')`
 	font-family: ${Fonts.bodyFamily};
+	display: flex;
+	&>div:last-child {
+		flex: 1;
+	}
 `;
 
 class App extends Component {
 	render() {
 		return <Body> 
-			<Profile />
 			<List />
+			<Profile />
+			
 		</Body>
 	}
 }
