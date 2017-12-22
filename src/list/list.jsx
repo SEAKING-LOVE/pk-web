@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListItem from './listItem/listItem.jsx';
-import { Container, ListContainer, SearchContainer, MenuToggler } from './list.styles.jsx';
+import { container, ListContainer, SearchContainer, MenuToggler } from './list.styles.jsx';
+
 
 class List extends Component {
 	constructor(props) {
@@ -8,12 +9,25 @@ class List extends Component {
 		this.state = {
 			searchString: '',
 			filteredList: [],
-			open: true
+			open: true,
+			windowWidth: 1000,
+			menuWidth: 0,
+			isMobile: false
 		};
 		this.handleSearch = this.handleSearch.bind(this);
+		this.toggleMenu = this.toggleMenu.bind(this);
 	}
 	componentDidMount() {
 		this.props.requestAllPokemon();
+		const windowWidth = window.innerWidth;
+		const mobileWidth = 900;
+
+		this.setState({
+			windowWidth: windowWidth,
+			menuWidth: windowWidth * 1,
+			isMobile: windowWidth <= mobileWidth
+		});
+		console.log(windowWidth)
 	}
 	componentWillUpdate(nextProps) {
 		if(nextProps.list.length > 0 && this.state.filteredList.length == 0) {
@@ -21,9 +35,25 @@ class List extends Component {
 		}
 	}
 	renderMenuToggler() {
-		return <MenuToggler>
-			
-		</MenuToggler>
+		if(!this.state.isMobile) return null;
+		const arrow = () => {
+			return {__html: this.state.open ? '&#x029C0;' : '&#x029C1;'}
+		}
+		return <MenuToggler
+			className={this.state.open ? 'open' : ''}
+			onClick={this.toggleMenu}
+			dangerouslySetInnerHTML={arrow()} />
+	}
+	toggleMenu() {
+		this.setState({ open: !this.state.open });
+	}
+	menuStyle() {
+		if(!this.state.isMobile) return null;
+		return {
+			width: `${this.state.menuWidth}px`,
+			left: this.state.open ? '0px' : `-${this.state.menuWidth * 1.02}px`,
+			position: 'absolute'
+		}
 	}
 	renderList() {
 		const listItems = this.state.filteredList.map((pk, index) => {
@@ -54,10 +84,11 @@ class List extends Component {
 		this.setState({ filteredList });
 	}
 	render() {
-		return <Container>
+		return <div className={container} style={this.menuStyle()}>
+			{this.renderMenuToggler()}
 			{this.renderSearchField()}
 			{this.renderList()}
-		</Container>
+		</div>
 	}
 }
 
