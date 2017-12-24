@@ -14,6 +14,11 @@ const Colors = {
 		warm: 'linear-gradient(to left, #ff7e5f, #feb47b);',
 		cool: 'linear-gradient(to right, #00c6ff, #2580ef);'
 	},
+	moveCategories: {
+		physical: '#da574a',
+		status: '#454550',
+		special: '#72a7c2'
+	},
 	types: {
 		normal: (alpha=1.0) => { 
 			return `rgba( 156, 160, 113 , ${alpha})`
