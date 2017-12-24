@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ListItem from './listItem/listItem.jsx';
+import LazyLoad from 'react-lazyload';
 import { container, ListContainer, SearchContainer, MenuToggler } from './list.styles.jsx';
 
 
@@ -56,12 +57,13 @@ class List extends Component {
 	}
 	renderList() {
 		const listItems = this.state.filteredList.map((pk, index) => {
-			return <ListItem
-				key={index}
-				id={pk.id}
-				name={pk.name}
-				sprite={pk.sprite}
-				onClick={() => this.props.requestUpdateSelectedId(pk.id)}/>
+			return <LazyLoad key={index} overflow height={73} once={true}>
+				<ListItem
+					id={pk.id}
+					name={pk.name}
+					sprite={pk.sprite}
+					onClick={() => this.props.requestUpdateSelectedId(pk.id)}/>
+			</LazyLoad>
 		});
 		return <ListContainer>
 			{listItems}

@@ -3,6 +3,7 @@ import { Colors } from '../themes/themes.js';
 
 
 export const container = css`
+	margin-right: 0.5em;
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -10,6 +11,7 @@ export const container = css`
 	padding: 1em;
 	height: 100vh;
 	width: 500px;
+	border-right: solid 1px ${Colors.shadow};
 	transition: 0.3s all;
 	z-index: 1;
 	background-color: #fff;
@@ -53,11 +55,13 @@ export const SearchContainer = styled('div')`
 		}
 	}
 `;
-
+	// flex: 1;
 export const ListContainer = styled('div')`
-	flex: 1;
+
 	width: 100%;
 	overflow-y: scroll;
+	position: relative;
+	height: 400px;
 	div {
 		margin: 0.5em 0;
 	}
