@@ -5,7 +5,7 @@ import {
 } from './list.types.js';
 
 const initialState = {
-	selectedId: 1,
+	selectedId: 151,
 	rawList: [],
 	filteredList: []
 };

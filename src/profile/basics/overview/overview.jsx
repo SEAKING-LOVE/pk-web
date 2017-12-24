@@ -34,11 +34,11 @@ class Overview extends Component {
 				</Cell>
 				<Cell>
 					<Subtitle>{this.props.baseExperience}</Subtitle>
-					<Title>Base Exp</Title>
+					<Title>Experience</Title>
 				</Cell>
 				<Cell>
 					<Subtitle> {this.props.baseHappiness} </Subtitle>
-					<Title>Base Happiness</Title>
+					<Title>Happiness</Title>
 				</Cell>
 			</Row>
 			

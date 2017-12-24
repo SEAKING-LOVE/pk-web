@@ -1,6 +1,10 @@
 import styled, { css } from 'react-emotion';
 import { Colors, Fonts } from '../themes/themes.js'; 
 
+export const ProfileContainer = styled('div')`
+  max-width: 100%;
+`;
+
 export const TabContainer = styled('div')`
   display: flex;
   box-sizing: border-box;

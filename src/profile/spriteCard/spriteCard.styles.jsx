@@ -65,7 +65,7 @@ export const Footprint = styled('div')`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: transparent;
+	background-color: ${Colors.lightBlue};
 	box-shadow: 3px 3px 0.5em ${Colors.shadow};
 	
 	img {

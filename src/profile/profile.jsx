@@ -4,7 +4,7 @@ import Basics from './basics/basics.container.jsx';
 import Moves from './moves/moves.container.jsx';
 import Evolution from './evolution/evolution.container.jsx';
 
-import { TabContainer, TabHeader, activeTab } from './profile.styles.jsx';
+import { ProfileContainer, TabContainer, TabHeader, activeTab } from './profile.styles.jsx';
 
 class Profile extends Component {
 	constructor(props) {
@@ -28,10 +28,10 @@ class Profile extends Component {
 	}
 	renderProfile() {
 		if(!this.props.requestSuccess) return null; //having loading state
-		return <div className='profile'>
+		return <ProfileContainer className='profile'>
 			<h1> profile component </h1>
 			{this.renderContent()}
-		</div>
+		</ProfileContainer>
 	}
 	renderTabs() {
 		const tabs = this.tabs.map((tab, index) => {
