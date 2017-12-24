@@ -1,5 +1,5 @@
 import styled, { css } from 'react-emotion';
-import { Colors, Fonts } from '../../themes/themes.js'; 
+import { Colors, Fonts } from '../../themes/themes.js';
 
 export const EvolutionContainer = styled('div')`
   display: flex;
@@ -45,7 +45,7 @@ export const Column = styled('div')`
   }
 
   &.hasStage2-after {
-  	width: 66.6666%;
+  	width: 66.6667%;
   }
 
   &.hasStage3-before {

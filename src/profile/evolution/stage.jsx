@@ -9,6 +9,10 @@ class Stage extends Component {
 		super(props);
 	}
 
+	static defaultProps = {
+	  name: ''
+	}
+
 	render() {
 		return <StageCell>{this.props.pkmn.name}</StageCell>
 	}

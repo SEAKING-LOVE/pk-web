@@ -20,7 +20,7 @@ const Colors = {
 		special: '#72a7c2'
 	},
 	types: {
-		normal: (alpha=1.0) => { 
+		normal: (alpha=1.0) => {
 			return `rgba( 156, 160, 113 , ${alpha})`
 		},
 		fire: (alpha=1.0) => {
@@ -28,10 +28,10 @@ const Colors = {
 		},
 		water: (alpha=1.0) => {
 			return `rgba( 0, 204, 255, ${alpha})`
-		}, 
+		},
 		electric: (alpha=1.0) => {
 			return `rgba( 242, 205, 60, ${alpha})`
-		}, 
+		},
 		grass: (alpha=1.0) => {
 			return `rgba( 113, 188, 120, ${alpha})`
 		},
@@ -39,14 +39,14 @@ const Colors = {
 			return `rgba( 164, 244, 249, ${alpha})`
 		},
 		fighting: (alpha=1.0) => {
-			return `rgba( 164, 244, 249, ${alpha})`
+			return `rgba( 192, 21, 21, ${alpha})`
 		},
 		poison: (alpha=1.0) => {
 			return `rgba( 138, 73, 107, ${alpha})`
 		},
 		ground: (alpha=1.0) => {
 			return `rgba( 166, 123, 91, ${alpha})`
-		}, 
+		},
 		flying: (alpha=1.0) => {
 			return `rgba( 206, 200, 239, ${alpha})`
 		},
@@ -55,7 +55,7 @@ const Colors = {
 		},
 		bug: (alpha=1.0) => {
 			return `rgba( 208, 206, 28, ${alpha})`
-		}, 
+		},
 		rock: (alpha=1.0) => {
 			return `rgba( 190, 190, 190, ${alpha})`
 		},
@@ -67,15 +67,15 @@ const Colors = {
 		},
 		dark: (alpha=1.0) => {
 			return `rgba( 28, 40, 65, ${alpha})`
-		}, 
+		},
 		steel: (alpha=1.0) => {
 			return `rgba( 162, 173, 208, ${alpha})`
 		},
 		fairy: (alpha=1.0) => {
 			return `rgba( 255, 192, 203, ${alpha})`
-		},	
+		},
 	},
-	
+
 }
 
 export default Colors;

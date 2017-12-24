@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Stage from './stage.jsx';
-
 import { EvolutionContainer, ColumnRow, Row, Column, NoEvolution } from './evolution.styles.jsx'
-
 
 class Evolution extends Component {
 
@@ -35,69 +33,83 @@ class Evolution extends Component {
 
 		return base;
 	}
+	renderChain() {
+			let chain = this.formatEvolutionChainData();
+			if (this.evoChainExists(chain)) return this.renderNoEvoChain();
 
-	render() {
-		let chain = this.formatEvolutionChainData();
+			const hasStage2 = (chain['next'] && chain['next'].length > 0);
+			const hasStage3 = chain['next'] ? this.stage3Exists(chain) : false;
 
-		if (!Object.keys(chain).length) {
-			return (<EvolutionContainer className='evolution'>
-						<NoEvolution>This Pokémon has no evolution chain.</NoEvolution>
-					</EvolutionContainer>);
+			const baseClassNames = (hasStage2 ? 'hasStage2-before ' : '') + (hasStage3 ? 'hasStage3-before' : '')
+
+			return (
+				<EvolutionContainer className='evolution'>
+					<ColumnRow>
+						<Row>
+							<Column className={"containsPkmn " + baseClassNames}>
+								<Stage pkmn={chain} />
+							</Column>
+								{hasStage2 ? this.renderAdditionalStages(chain, hasStage2, hasStage3) : null}
+						</Row>
+					</ColumnRow>
+				</EvolutionContainer>
+			)
+	}
+	evoChainExists(chain) {
+		return !Object.keys(chain).length;
+	}
+	stage3Exists(chain) {
+		for(let i = 0; i < chain['next'].length; i++) {
+			if(chain['next'][i]['next'].length > 0) return true;
 		}
+		return false;
+	}
+	renderNoEvoChain() {
+		return <EvolutionContainer className='evolution'>
+					<NoEvolution>This Pokémon has no evolution chain.</NoEvolution>
+				</EvolutionContainer>
+	}
 
-
-		const hasStage2 = (chain['next'] && chain['next'].length > 0);
-		let hasStage3 = false;
-
-		if(chain['next']) {
-			chain['next'].forEach( potentialNextPkmn => {
-				if (potentialNextPkmn['next'].length > 0) {
-					hasStage3 = true;
-				}
-			})
-		}
-
-		return (<EvolutionContainer className='evolution'>
-			<ColumnRow>
-				<Row>
-					<Column className={"containsPkmn " + (hasStage2 ? 'hasStage2-before ' : '') + (hasStage3 ? 'hasStage3-before' : '')}>
-						<Stage pkmn={chain} />
+	renderAdditionalStages(chain, hasStage2, hasStage3) { //stage 2 and 3
+		const stage2ClassNames = hasStage2 ? hasStage3 ? 'hasStage2-after' : 'hasStage2-before' : '';
+		const nextStage = chain['next'].map( (intermediate, intermediateIndex) => {
+			const pkmn = chain['next'][intermediateIndex];
+			const stage = pkmn['next'] ? this.renderStage3(chain, hasStage3, intermediateIndex) : null;
+			return (
+				<Row key={chain['next'][intermediateIndex].id}>
+					<Column className={"containsPkmn " + (hasStage3 ? 'hasStage3-after' : '')}>
+						<Stage pkmn={pkmn} />
 					</Column>
-					{(chain['next']) 
-					? <Column className={hasStage2 ? hasStage3 ? 'hasStage2-after' : 'hasStage2-before' : ''}>
-						<ColumnRow>
-							{ chain['next'].map( (intermediate, intermediate_index) => {
-								return (
-									<Row key={chain['next'][intermediate_index].id}>
-										<Column className={"containsPkmn " + (hasStage3 ? 'hasStage3-after' : '')}>
-											<Stage pkmn={chain['next'][intermediate_index]} />
-										</Column>
-										{(chain['next'][intermediate_index]['next']) 
-										? <Column className={hasStage3 ? 'hasStage3-after' : ''}>
-											<ColumnRow>
-												{ chain['next'][intermediate_index]['next'].map( (final, final_index) => {
-													return (
-														<Row key={chain['next'][intermediate_index]['next'][final_index].id}>
-															<Column className="containsPkmn">
-																<Stage pkmn={chain['next'][intermediate_index]['next'][final_index]} />
-															</Column>
-														</Row>
-													)
-												})
-												}
-											</ColumnRow>
-										</Column>
-										: ''}
-									</Row>
-								)
-							})
-							}
-						</ColumnRow>
-					</Column>
-					: ''}
+					{stage}
 				</Row>
+			)
+		})
+		return <Column className={stage2ClassNames}>
+			<ColumnRow>
+				{nextStage}
 			</ColumnRow>
-		</EvolutionContainer>)
+		</Column>;
+	}
+	renderStage3(chain, hasStage3, intermediateIndex) {
+		const nextStage = chain['next'][intermediateIndex]['next'].map( (final, finalIndex) => {
+			const pkmn = chain['next'][intermediateIndex]['next'][finalIndex];
+			return (
+				<Row key={pkmn.id}>
+					<Column className="containsPkmn">
+						<Stage pkmn={pkmn} />
+					</Column>
+				</Row>
+			)
+		})
+
+		return <Column className={hasStage3 ? 'hasStage3-after' : ''}>
+				<ColumnRow>
+					{nextStage}
+				</ColumnRow>
+			</Column>
+	}
+	render() {
+		return this.renderChain();
 	}
 }
 

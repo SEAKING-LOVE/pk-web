@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Container, Name, sprite } from './listItem.styles.jsx';
 import { leadingZeros } from '../../utils.js';
 
-
 class ListItem extends Component {
 	static defaultProps = {
 		id: 0,
@@ -11,9 +10,7 @@ class ListItem extends Component {
 		onClick: () => {},
 	}
 	renderSprite() {
-		return <div className={`${sprite} pki n${this.props.id}`}>
-			
-		</div>
+		return <div className={`${sprite} pki n${this.props.id}`} />
 	}
 	renderId() {
 		return <div>

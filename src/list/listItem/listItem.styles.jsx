@@ -1,6 +1,5 @@
 import styled, { css } from 'react-emotion';
-import { Colors, Images } from '../../themes/themes.js';
-import { sprites } from './sprites.js';
+import { Colors, Images, Styles } from '../../themes/themes.js';
 
 const borderWidth = '0.3em';
 
@@ -40,7 +39,7 @@ export const Container = styled('div')`
 		margin-left: 0.5em;
 	}
 	${containerHover}
-	${sprites}
+	${Styles.spritePosition}
 `;
 
 const text = css`
@@ -52,12 +51,4 @@ export const Name = styled('div')`
 	text-transform: capitalize;
 `;
 
-export const sprite = css`
-	background-image: url(${Images.spritesheet});
-	width: 40px;
-	height: 30px;
-	vertical-align: middle;
-	display: inline-block;
-
-`;
-
+export const sprite = Styles.sprite;

@@ -29,7 +29,6 @@ class Profile extends Component {
 	renderProfile() {
 		if(!this.props.requestSuccess) return null; //having loading state
 		return <ProfileContainer className='profile'>
-			<h1> profile component </h1>
 			{this.renderContent()}
 		</ProfileContainer>
 	}

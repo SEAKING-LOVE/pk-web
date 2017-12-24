@@ -16,8 +16,9 @@ const Body = styled('div')`
 
 class App extends Component {
 	render() {
-		return (<Body> 
-			<Profile />			
+		return (<Body>
+			<List />
+			<Profile />
 		</Body>);
 	}
 }
