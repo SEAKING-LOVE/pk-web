@@ -52,7 +52,7 @@ class List extends Component {
 			dangerouslySetInnerHTML={arrow()} />
 	}
 	menuTogglerStyle() {
-		if(this.state.open) return {}; 
+		if(this.state.open) return {};
 		return {
 			width: this.state.menuWidth + 50
 		}
@@ -98,7 +98,7 @@ class List extends Component {
 		return <SearchContainer>
 			<input
 			type='text'
-			placeholder="Who's that pokemon?"
+			placeholder="Who's That Pokémon?"
 			onChange={this.handleSearch}/>
 		</SearchContainer>
 	}

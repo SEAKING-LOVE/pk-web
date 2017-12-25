@@ -36,11 +36,12 @@ class Evolution extends Component {
 		const hasStage2 = (chain['next'] && chain['next'].length > 0);
 		const hasStage3 = chain['next'] ? this.stage3Exists(chain) : false;
 
-		const baseClassNames = (hasStage2 ? 'hasStage2-before ' : '') + (hasStage3 ? 'hasStage3-before' : '')
+		const baseClassNames = (hasStage2 ? 'hasStage2-before ' : '') + (hasStage3 ? 'hasStage3-before' : '');
+		const outerMostRowClassNames = hasStage3 ? 'threeStages' : '';
 
 		return (
 			<EvolutionContainer className='evolution'>
-				<ColumnRow>
+				<ColumnRow className={outerMostRowClassNames}>
 					<Row>
 						<Column className={"containsPkmn " + baseClassNames}>
 							<Stage pkmn={chain} />

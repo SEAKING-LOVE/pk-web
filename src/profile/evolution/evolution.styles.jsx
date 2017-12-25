@@ -10,6 +10,7 @@ export const EvolutionContainer = styled('div')`
   box-shadow: 0px 3px 5px 2px ${Colors.shadow};
   border-radius: 0.4em;
   font-family: ${Fonts.titleFamily};
+  overflow-x: auto;
 `;
 
 export const ColumnRow = styled('div')`
@@ -17,6 +18,10 @@ export const ColumnRow = styled('div')`
   flex-direction: column;
   width: 100%;
   height: 100%;
+
+  &.threeStages {
+    min-width: 520px;
+  }
 `;
 
 export const Row = styled('div')`
