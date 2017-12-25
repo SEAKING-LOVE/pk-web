@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { Colors } from '../../themes/themes.js';
-import { StageCell, sprite, StageName, Conditions } from './evolution.styles.jsx'
+import { StageCell, verticalCenter, StageName, Conditions, sprite, spriteScale } from './evolution.styles.jsx'
 
 class Stage extends Component {
-	constructor(props) {
-		super(props);
-	}
 	static defaultProps = {
 	  pkmn: {}
 	}
 	renderSprite() {
-		return <div className={`${sprite} pki n${this.props.pkmn.id}`}></div>;
+		return <div className={`${spriteScale} ${sprite} pki n${this.props.pkmn.id}`}></div>;
 	}
 	renderName() {
 		return <StageName>{this.props.pkmn.name}</StageName>
@@ -24,7 +21,6 @@ class Stage extends Component {
 				{key}: {conditionValues.join(', ')}
 			</div>
 		})
-		
 		return <Conditions>
 			{conditions}
 		</Conditions>
@@ -35,7 +31,6 @@ class Stage extends Component {
 			const conditionValue = this.props.pkmn[conditionName];
 			if(this.useCondition(conditionName, conditionValue)) {
 				const formattedConditionName = this.parseCamelCase(conditionName);
-				if(formattedConditionName == 'Known Move Type Id') console.log(conditionName);
 				conditions[formattedConditionName] = conditionValue;
 			}
 		});
@@ -43,7 +38,7 @@ class Stage extends Component {
 
 	}
 	useCondition(conditionName, conditionValue) {
-		const ignoredFields = ['chainId', 'genderId', 'id', 'name', 'predecessorId', 'triggerMethod', 'knownMoveTypeId'];
+		const ignoredFields = ['chainId', 'genderId', 'id', 'name', 'predecessorId', 'knownMoveTypeId', 'next'];
 		return ignoredFields.indexOf(conditionName) == -1 && conditionValue[0];
 	}
 	parseCamelCase(string) {
@@ -51,8 +46,15 @@ class Stage extends Component {
 			.replace(/([A-Z])/g, ' $1')
 			.replace(/^./, (s) => s.toUpperCase());
 	}
+	containerClassName() {
+		const conditionsExist = Object.keys(this.getConditions()).length > 0;
+		const isBaseStage = this.props.pkmn.predecessorId == null;
+		console.log(this.props.pkmn.name, conditionsExist, isBaseStage);
+		console.log((!conditionsExist || isBaseStage) ? verticalCenter : '');
+		return (!conditionsExist || isBaseStage) ? verticalCenter : '';
+	}
 	render() {
-		return <StageCell>
+		return <StageCell className={this.containerClassName()}>
 			{this.renderName()}
 			{this.renderSprite()}
 			{this.renderConditions()}

@@ -15,15 +15,15 @@ class Overview extends Component {
 		return <OverviewTable className='overview'>
 			<Row>
 				<Cell>
-					<Subtitle>{this.props.height}M</Subtitle>
+					<Subtitle>{this.props.height ? `${this.props.height}M` : '--'}</Subtitle>
 					<Title>Height</Title>
 				</Cell>
 				<Cell>
-					<Subtitle>{this.props.weight}KG</Subtitle>
+					<Subtitle>{this.props.weight ? `${this.props.weight}KG` : '--'}</Subtitle>
 					<Title>Weight</Title>
 				</Cell>
 				<Cell>
-					<Subtitle>{this.props.captureRate}</Subtitle>
+					<Subtitle>{this.props.captureRate ? this.props.captureRate : '--'}</Subtitle>
 					<Title>catch rate</Title>
 				</Cell>	
 			</Row>
@@ -33,11 +33,11 @@ class Overview extends Component {
 					<Title>Ability</Title>
 				</Cell>
 				<Cell>
-					<Subtitle>{this.props.baseExperience}</Subtitle>
+					<Subtitle>{this.props.baseExperience ? this.props.baseExperience : '--'}</Subtitle>
 					<Title>Experience</Title>
 				</Cell>
 				<Cell>
-					<Subtitle> {this.props.baseHappiness} </Subtitle>
+					<Subtitle> {this.props.baseHappiness ? this.props.baseHappiness : '--'} </Subtitle>
 					<Title>Happiness</Title>
 				</Cell>
 			</Row>

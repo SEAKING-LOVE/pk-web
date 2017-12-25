@@ -69,6 +69,8 @@ export const StageCell = styled('div')`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100%;
   min-width: 6em;
   min-height: 6em;
   overflow: hidden;
@@ -81,6 +83,9 @@ export const StageCell = styled('div')`
     margin-top: 0.7em;
   }
 `;
+export const verticalCenter = css`
+  justify-content: center;
+`;
 
 export const StageName = styled('div')`
   color: ${Colors.white};
@@ -88,6 +93,7 @@ export const StageName = styled('div')`
 `;
 
 export const Conditions = styled('div')`
+  width: 100%;
   padding: 0.3em;
   background-color: ${Colors.white};
   border-top: solid 0.2em ${Colors.lightBlue};
@@ -98,3 +104,7 @@ export const Conditions = styled('div')`
 `;
 
 export const sprite = Styles.sprite;
+
+export const spriteScale = css`
+  transform: scale(1.5);
+`;
