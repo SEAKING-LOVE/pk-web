@@ -39,5 +39,5 @@ export const Subtitle = styled('div')`
 `;
 
 export const smallSubtitle = css`
-  font-size: 0.7em;
+  font-size: 0.8em;
 `;
