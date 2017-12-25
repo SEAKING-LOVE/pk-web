@@ -29,7 +29,7 @@ class Stage extends Component {
 		let conditions = {};
 		Object.keys(this.props.pkmn).forEach((conditionName, index) => {
 			const conditionValue = this.props.pkmn[conditionName];
-			if(this.useCondition(conditionName, conditionValue)) {
+			if(this.usedCondition(conditionName, conditionValue)) {
 				const formattedConditionName = this.parseCamelCase(conditionName);
 				conditions[formattedConditionName] = conditionValue;
 			}
@@ -37,9 +37,9 @@ class Stage extends Component {
 		return conditions;
 
 	}
-	useCondition(conditionName, conditionValue) {
-		const ignoredFields = ['chainId', 'genderId', 'id', 'name', 'predecessorId', 'knownMoveTypeId', 'next'];
-		return ignoredFields.indexOf(conditionName) == -1 && conditionValue[0];
+	usedCondition(conditionName, conditionValue) {
+		const ignoredFields = ['id', 'name', 'next'];
+		return ignoredFields.indexOf(conditionName) == -1 && !conditionName.includes('Id') && conditionValue[0];
 	}
 	parseCamelCase(string) {
 		return string
@@ -49,8 +49,6 @@ class Stage extends Component {
 	containerClassName() {
 		const conditionsExist = Object.keys(this.getConditions()).length > 0;
 		const isBaseStage = this.props.pkmn.predecessorId == null;
-		console.log(this.props.pkmn.name, conditionsExist, isBaseStage);
-		console.log((!conditionsExist || isBaseStage) ? verticalCenter : '');
 		return (!conditionsExist || isBaseStage) ? verticalCenter : '';
 	}
 	render() {

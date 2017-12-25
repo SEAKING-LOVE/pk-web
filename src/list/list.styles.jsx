@@ -1,15 +1,17 @@
 import styled, { css } from 'react-emotion';
-import { Colors } from '../themes/themes.js';
+import { Colors, Fonts } from '../themes/themes.js';
 
 
 export const container = css`
+	margin-right: 0.5em;
 	display: flex;
 	flex-direction: column;
-	position: relative;
 	box-sizing: border-box;
 	padding: 1em;
+	position: fixed;
+	width: 400px;
 	height: 100vh;
-	width: 500px;
+	border-right: solid 1px ${Colors.shadow};
 	transition: 0.3s all;
 	z-index: 1;
 	background-color: #fff;
@@ -29,7 +31,7 @@ export const MenuToggler = styled('div')`
 	cursor: pointer;
 	transition: 0.3s all;
 	:hover {
-		box-shadow: -4px 2px 3px 1px ${Colors.shadow};
+		box-shadow: 2px 2px 3px 1px ${Colors.shadow};
 	}
 	&.open {
 		width: 100%;
@@ -51,15 +53,19 @@ export const SearchContainer = styled('div')`
 		:focus, :active {
 			outline: none;
 		}
+		::placeholder {
+			font-family: ${Fonts.titleFamily};
+		}
 	}
 `;
 
-export const ListContainer = styled('div')`
-	flex: 1;
+	// flex: 1;
+export const ListContainer = css`
+	position: relative;
+	height: 100%;
 	width: 100%;
 	overflow-y: scroll;
 	div {
 		margin: 0.5em 0;
 	}
 `;
-

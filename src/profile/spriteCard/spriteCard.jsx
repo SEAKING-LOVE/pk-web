@@ -18,7 +18,7 @@ class SpriteCard extends Component {
 			<div>
 				{this.renderFootprint()}
 			</div>
-		</Footer>	
+		</Footer>
 	}
 	renderNationalNo() {
 		return <NationalNo>#{leadingZeros(this.props.id)}</NationalNo>

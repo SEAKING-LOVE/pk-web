@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ListItem from './listItem/listItem.jsx';
+import VirtualList from 'react-tiny-virtual-list';
 import { container, ListContainer, SearchContainer, MenuToggler } from './list.styles.jsx';
-
+import { Metrics } from '../themes/themes.js';
 
 class List extends Component {
 	constructor(props) {
@@ -16,22 +17,29 @@ class List extends Component {
 		};
 		this.handleSearch = this.handleSearch.bind(this);
 		this.toggleMenu = this.toggleMenu.bind(this);
+		this.handleWindowResize = this.handleWindowResize.bind(this);
 	}
 	componentDidMount() {
 		this.props.requestAllPokemon();
 		const windowWidth = window.innerWidth;
-		const mobileWidth = 900;
 
 		this.setState({
-			windowWidth: windowWidth,
 			menuWidth: windowWidth * 1,
-			isMobile: windowWidth <= mobileWidth
+			isMobile: windowWidth <= Metrics.mobileWidth
 		});
+		window.addEventListener('resize', this.handleWindowResize);
 	}
 	componentWillUpdate(nextProps) {
 		if(nextProps.list.length > 0 && this.state.filteredList.length == 0) {
 			this.setState({ filteredList: nextProps.list });
 		}
+	}
+	handleWindowResize(e) {
+		const width = e.target.innerWidth;
+		this.setState({
+			menuWidth: width,
+			isMobile: width <= Metrics.mobileWidth
+		});
 	}
 	renderMenuToggler() {
 		if(!this.state.isMobile) return null;
@@ -49,23 +57,36 @@ class List extends Component {
 	menuStyle() {
 		if(!this.state.isMobile) return null;
 		return {
-			width: `${this.state.menuWidth}px`,
+			width: `100%`,
 			left: this.state.open ? '0px' : `-${this.state.menuWidth * 1.02}px`,
-			position: 'absolute'
+			position: 'fixed',
+			borderRight: 'none',
 		}
 	}
+	renderPkmnListItem({index, style}) {
+		return <div key={index} style={style}>
+			<ListItem
+				id={this.state.filteredList[index].id}
+				name={this.state.filteredList[index].name}
+				sprite={this.state.filteredList[index].sprite}
+				onClick={() => this.handleListItemClick(this.state.filteredList[index].id)}/>
+		</div>
+	}
+
 	renderList() {
-		const listItems = this.state.filteredList.map((pk, index) => {
-			return <ListItem
-				key={index}
-				id={pk.id}
-				name={pk.name}
-				sprite={pk.sprite}
-				onClick={() => this.props.requestUpdateSelectedId(pk.id)}/>
-		});
-		return <ListContainer>
-			{listItems}
-		</ListContainer>
+		return <VirtualList
+					className={ListContainer}
+					width='100%'
+					height='100%'
+					itemCount={this.state.filteredList.length}
+					itemSize={72}
+					overscanCount={25}
+					renderItem={({index, style}) => this.renderPkmnListItem({index, style})}
+				/>
+	}
+	handleListItemClick(id) {
+		this.props.requestUpdateSelectedId(id);
+		this.setState({ open: false });
 	}
 	renderSearchField() {
 		return <SearchContainer>
