@@ -4,7 +4,15 @@ import { OverviewTable, Row, Cell, Title, Subtitle, smallSubtitle } from './over
 
 class Overview extends Component {
 	renderAbilities() {
-		return this.props.abilities.map( ability => this.renderAbility(ability))
+		const sortedAbilities = this.sortAbilities();
+		return sortedAbilities.map( ability => this.renderAbility(ability))
+	}
+	sortAbilities() {
+		return this.props.abilities.sort((a1, a2) => {
+			if((a1.hidden && a2.hidden) || (!a1.hidden && !a1.hidden)) return 0;
+			if(a1.hidden) return 1;
+			return -1;
+		})
 	}
 	renderAbility(ability) {
 		return <Subtitle key={ability.id} className={ability.hidden ? smallSubtitle : ''}>
