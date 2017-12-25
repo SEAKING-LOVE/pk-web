@@ -11,7 +11,6 @@ class List extends Component {
 			searchString: '',
 			filteredList: [],
 			open: true,
-			windowWidth: 1000,
 			menuWidth: 0,
 			isMobile: false
 		};
@@ -47,9 +46,16 @@ class List extends Component {
 			return {__html: this.state.open ? '&#x029C0;' : '&#x029C1;'}
 		}
 		return <MenuToggler
+			style={this.menuTogglerStyle()}
 			className={this.state.open ? 'open' : ''}
 			onClick={this.toggleMenu}
 			dangerouslySetInnerHTML={arrow()} />
+	}
+	menuTogglerStyle() {
+		if(this.state.open) return {}; 
+		return {
+			width: this.state.menuWidth + 50
+		}
 	}
 	toggleMenu() {
 		this.setState({ open: !this.state.open });

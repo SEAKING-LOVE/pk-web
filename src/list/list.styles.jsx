@@ -25,7 +25,6 @@ export const MenuToggler = styled('div')`
 	box-sizing: border-box;
 	font-size: 2em;
 	height: 1.5em;
-	width: calc(110% + 0.5em);
 	color: white;
 	background-color: ${Colors.pink};
 	cursor: pointer;
@@ -59,7 +58,6 @@ export const SearchContainer = styled('div')`
 	}
 `;
 
-	// flex: 1;
 export const ListContainer = css`
 	position: relative;
 	height: 100%;
