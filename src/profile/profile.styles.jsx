@@ -1,8 +1,15 @@
 import styled, { css } from 'react-emotion';
-import { Colors, Fonts } from '../themes/themes.js'; 
+import { Colors, Fonts, Metrics } from '../themes/themes.js';
 
 export const ProfileContainer = styled('div')`
   max-width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+
+  @media screen and (min-width: ${Metrics.mobileWidth}px) {
+		margin-left: 408px;
+	}
+
 `;
 
 export const TabContainer = styled('div')`
@@ -21,7 +28,7 @@ export const TabHeader = styled('div')`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   font-family: ${Fonts.bodyFamily};
   font-weight: ${Fonts.bold};
   text-transform: uppercase;

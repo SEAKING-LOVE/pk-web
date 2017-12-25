@@ -1,5 +1,5 @@
 import styled, { css } from 'react-emotion';
-import { Colors, Fonts } from '../../themes/themes.js'; 
+import { Colors, Fonts, Metrics } from '../../themes/themes.js';
 
 export const Nav = styled('div')`
   display: flex;
@@ -17,7 +17,7 @@ export const NavHeader = styled('div')`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   font-family: ${Fonts.bodyFamily};
   font-weight: ${Fonts.bold};
   text-transform: uppercase;
@@ -47,7 +47,7 @@ export const MoveContainer = styled('div')`
 
 export const MoveRow = styled('div')`
 	display: flex;
-  	min-width: 640px;
+	min-width: 640px;
 `;
 
 export const MoveLevel = styled('div')`
@@ -70,7 +70,7 @@ export const MoveName = styled('div')`
 		font-weight: bold;
 	}
 
-	@media (max-width: 912px) {
+	@media screen and (max-width: ${Metrics.moveBreakWidth}px) {
 		flex: 2;
 	}
 `;
@@ -93,5 +93,3 @@ export const TypeBadge = styled('span')`
 	border-radius: 0.2em;
 	text-transform: uppercase;
 `;
-
-

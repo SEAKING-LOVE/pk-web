@@ -3,7 +3,6 @@ const Fonts = {
 	bodyFamily: `'Montserrat', sans-serif`,
 	bold: 700,
 	normal: 400,
-	thin: 300,
 	size: {
 
 	},

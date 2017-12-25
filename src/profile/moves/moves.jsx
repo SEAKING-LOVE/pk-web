@@ -9,12 +9,18 @@ class Moves extends Component {
 		this.state = {
 			tabIndex: 0
 		};
-		this.tabs = [
-			{label: 'level up', data: props.levelUp},
-			{label: 'machine', data: props.machine},
-			{label: 'egg', data: props.egg},
-			{label: 'tutor', data: props.tutor},
-		];
+		this.tabs = this.updateTabs(props);
+	}
+	componentWillReceiveProps(nextProps) {
+		this.tabs = this.updateTabs(nextProps);
+	}
+	updateTabs(data) {
+		return [
+			{label: 'level up', data: data.levelUp},
+			{label: 'machine', data: data.machine},
+			{label: 'egg', data: data.egg},
+			{label: 'tutor', data: data.tutor},
+		]
 	}
 	renderTabs() {
 		const tabs = this.tabs.map((tab, index) => {
@@ -37,10 +43,10 @@ class Moves extends Component {
 	}
 	renderMoves() {
 		let moves = [];
-		if (this.tabs[this.state.tabIndex].data !== undefined) {
+		if (this.tabs[this.state.tabIndex].data) {
 			moves = this.tabs[this.state.tabIndex].data.map((move, index) => {
-				return this.renderMove(move, index); 
-			});	
+				return this.renderMove(move, index);
+			});
 		}
 		return <MoveContainer>
 			<MoveRow>

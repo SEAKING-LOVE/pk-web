@@ -16,6 +16,7 @@ export const ColumnRow = styled('div')`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
 `;
 
 export const Row = styled('div')`
@@ -33,8 +34,8 @@ export const Column = styled('div')`
   text-align: center;
 
   &.containsPkmn {
-  	
-	
+
+
 	text-transform: capitalize;
 	border-radius: 0.4em;
 	margin: 0.2em;
@@ -94,10 +95,16 @@ export const StageName = styled('div')`
 
 export const Conditions = styled('div')`
   width: 100%;
-  padding: 0.3em;
+  padding: 0.8em;
   background-color: ${Colors.white};
   border-top: solid 0.2em ${Colors.lightBlue};
   color: ${Colors.darkGrey};
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   div {
     padding: 0.2em 0;
   }

@@ -21,7 +21,7 @@ const Colors = {
 	},
 	types: {
 		normal: (alpha=1.0) => {
-			return `rgba( 156, 160, 113 , ${alpha})`
+			return `rgba( 178, 179, 169, ${alpha})`
 		},
 		fire: (alpha=1.0) => {
 			return `rgba( 246, 97, 79, ${alpha})`
@@ -57,7 +57,7 @@ const Colors = {
 			return `rgba( 208, 206, 28, ${alpha})`
 		},
 		rock: (alpha=1.0) => {
-			return `rgba( 190, 190, 190, ${alpha})`
+			return `rgba( 139, 69, 19, ${alpha})`
 		},
 		ghost: (alpha=1.0) => {
 			return `rgba( 150, 120, 182, ${alpha})`

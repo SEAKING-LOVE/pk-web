@@ -12,5 +12,6 @@ module.exports = merge(common, {
 				'NODE_ENV': JSON.stringify('development')
 			}
 		})
-	]
+	],
+	devtool: "source-map"
 });
