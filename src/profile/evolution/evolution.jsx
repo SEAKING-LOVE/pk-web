@@ -8,9 +8,7 @@ class Evolution extends Component {
 		let base = {};
 
 		this.props.chain.forEach(pkmn => {
-			if(pkmn.predecessorId === null) {
-				base = pkmn;
-			}
+			if(pkmn.predecessorId === null) base = pkmn;
 		})
 
 		if (this.props.chain.length > 1) {
@@ -21,7 +19,6 @@ class Evolution extends Component {
 					base['next'].push({...nextPkmn, next: []});
 				}
 			})
-
 			this.props.chain.forEach(nextPkmn => {
 				base['next'].forEach( (nextStage, index) => {
 					if(nextPkmn.predecessorId === base['next'][index].id) {
@@ -30,30 +27,29 @@ class Evolution extends Component {
 				})
 			})
 		}
-
 		return base;
 	}
 	renderChain() {
-			let chain = this.formatEvolutionChainData();
-			if (this.evoChainExists(chain)) return this.renderNoEvoChain();
+		let chain = this.formatEvolutionChainData();
+		if (this.evoChainExists(chain)) return this.renderNoEvoChain();
 
-			const hasStage2 = (chain['next'] && chain['next'].length > 0);
-			const hasStage3 = chain['next'] ? this.stage3Exists(chain) : false;
+		const hasStage2 = (chain['next'] && chain['next'].length > 0);
+		const hasStage3 = chain['next'] ? this.stage3Exists(chain) : false;
 
-			const baseClassNames = (hasStage2 ? 'hasStage2-before ' : '') + (hasStage3 ? 'hasStage3-before' : '')
+		const baseClassNames = (hasStage2 ? 'hasStage2-before ' : '') + (hasStage3 ? 'hasStage3-before' : '')
 
-			return (
-				<EvolutionContainer className='evolution'>
-					<ColumnRow>
-						<Row>
-							<Column className={"containsPkmn " + baseClassNames}>
-								<Stage pkmn={chain} />
-							</Column>
-								{hasStage2 ? this.renderAdditionalStages(chain, hasStage2, hasStage3) : null}
-						</Row>
-					</ColumnRow>
-				</EvolutionContainer>
-			)
+		return (
+			<EvolutionContainer className='evolution'>
+				<ColumnRow>
+					<Row>
+						<Column className={"containsPkmn " + baseClassNames}>
+							<Stage pkmn={chain} />
+						</Column>
+						{hasStage2 ? this.renderAdditionalStages(chain, hasStage2, hasStage3) : null}
+					</Row>
+				</ColumnRow>
+			</EvolutionContainer>
+		)
 	}
 	evoChainExists(chain) {
 		return !Object.keys(chain).length;
@@ -66,8 +62,8 @@ class Evolution extends Component {
 	}
 	renderNoEvoChain() {
 		return <EvolutionContainer className='evolution'>
-					<NoEvolution>This Pokémon has no evolution chain.</NoEvolution>
-				</EvolutionContainer>
+			<NoEvolution>This Pokémon has no evolution chain.</NoEvolution>
+		</EvolutionContainer>
 	}
 
 	renderAdditionalStages(chain, hasStage2, hasStage3) { //stage 2 and 3
@@ -101,7 +97,6 @@ class Evolution extends Component {
 				</Row>
 			)
 		})
-
 		return <Column className={hasStage3 ? 'hasStage3-after' : ''}>
 				<ColumnRow>
 					{nextStage}
