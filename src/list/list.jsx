@@ -98,7 +98,7 @@ class List extends Component {
 		return <SearchContainer>
 			<input
 			type='text'
-			placeholder='search'
+			placeholder="Who's that pokemon?"
 			onChange={this.handleSearch}/>
 		</SearchContainer>
 	}
