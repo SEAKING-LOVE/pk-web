@@ -16,11 +16,10 @@ const Body = styled('div')`
 
 class App extends Component {
 	render() {
-		return <Body> 
+		return (<Body>
 			<List />
 			<Profile />
-			
-		</Body>
+		</Body>);
 	}
 }
 

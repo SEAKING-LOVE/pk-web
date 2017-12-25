@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
-import { Nav } from './moves.styles.jsx'
 import Move from './move.jsx'
+
+import { Nav, NavHeader, activeTab, MoveContainer, MoveRow, MoveLevel, MoveName, MoveType, MoveClass, MoveGeneric } from './moves.styles.jsx';
 
 class Moves extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			tabIndex: 3
+			tabIndex: 0
 		};
 		this.tabs = [
-			{label: 'machine', data: props.machine},
 			{label: 'level up', data: props.levelUp},
+			{label: 'machine', data: props.machine},
 			{label: 'egg', data: props.egg},
 			{label: 'tutor', data: props.tutor},
 		];
@@ -24,34 +25,51 @@ class Moves extends Component {
 		</Nav>
 	}
 	renderTab(label, index) {
-		return <div
+		return <NavHeader
 			key={index}
 			onClick={() => {this.selectTab(index)}}
-			className={this.state.tabIndex === index ? 'active' : ''}>
+			className={this.state.tabIndex === index ? activeTab : ''}>
 			{label}
-		</div>
+		</NavHeader>
 	}
 	selectTab(index) {
 		this.setState({ tabIndex: index });
 	}
 	renderMoves() {
-		const moves = this.tabs[this.state.tabIndex].data.map((move, index) => {
-			return this.renderMove(move, index); 
-		});	
-		return <div>
+		let moves = [];
+		if (this.tabs[this.state.tabIndex].data !== undefined) {
+			moves = this.tabs[this.state.tabIndex].data.map((move, index) => {
+				return this.renderMove(move, index); 
+			});	
+		}
+		return <MoveContainer>
+			<MoveRow>
+				<MoveLevel className='header'>Level</MoveLevel>
+				<MoveName className='header'>Name</MoveName>
+				<MoveGeneric className='header'>Type</MoveGeneric>
+				<MoveGeneric className='header'>Category</MoveGeneric>
+				<MoveGeneric className='header'>Power</MoveGeneric>
+				<MoveGeneric className='header'>Accuracy</MoveGeneric>
+				<MoveGeneric className='header'>PP</MoveGeneric>
+			</MoveRow>
 			{moves}
-		</div>
+		</MoveContainer>
 	}
 	renderMove(move, index) {
 		return <Move
 			key={index}
 			id={move.id}
 			level={move.level}
-			name={move.name}/>
+			name={move.name}
+			power={move.power}
+			pp={move.pp}
+			accuracy={move.accuracy}
+			type={move.type}
+			class={move.class}
+			/>
 	}
 	render() {
 		return <div className='moves'>
-			Moves component
 			{this.renderTabs()}
 			{this.renderMoves()}
 		</div>

@@ -27,7 +27,6 @@ class List extends Component {
 			menuWidth: windowWidth * 1,
 			isMobile: windowWidth <= mobileWidth
 		});
-		console.log(windowWidth)
 	}
 	componentWillUpdate(nextProps) {
 		if(nextProps.list.length > 0 && this.state.filteredList.length == 0) {
@@ -57,9 +56,9 @@ class List extends Component {
 	}
 	renderList() {
 		const listItems = this.state.filteredList.map((pk, index) => {
-			return <ListItem 
-				key={index} 
-				id={pk.id} 
+			return <ListItem
+				key={index}
+				id={pk.id}
 				name={pk.name}
 				sprite={pk.sprite}
 				onClick={() => this.props.requestUpdateSelectedId(pk.id)}/>
@@ -70,7 +69,7 @@ class List extends Component {
 	}
 	renderSearchField() {
 		return <SearchContainer>
-			<input 
+			<input
 			type='text'
 			placeholder='search'
 			onChange={this.handleSearch}/>
