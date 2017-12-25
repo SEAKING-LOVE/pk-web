@@ -15,11 +15,11 @@ class Overview extends Component {
 		return <OverviewTable className='overview'>
 			<Row>
 				<Cell>
-					<Subtitle>{this.props.height ? `${this.props.height}M` : '--'}</Subtitle>
+					<Subtitle>{this.props.height ? `${this.props.height}m` : '--'}</Subtitle>
 					<Title>Height</Title>
 				</Cell>
 				<Cell>
-					<Subtitle>{this.props.weight ? `${this.props.weight}KG` : '--'}</Subtitle>
+					<Subtitle>{this.props.weight ? `${this.props.weight}kg` : '--'}</Subtitle>
 					<Title>Weight</Title>
 				</Cell>
 				<Cell>
