@@ -28,8 +28,8 @@ export const Title = styled('div')`
 export const Artwork = styled.img`
 	image-rendering: pixelated;
 	padding: 2em 2em 1.5em;
-	width: 200px;
-	height: auto;
+	height: 200px;
+	width: auto;
 `;
 
 export const Footer = styled('div')`
