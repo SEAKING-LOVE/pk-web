@@ -26,7 +26,8 @@ export const Title = styled('div')`
 `;
 
 export const Artwork = styled.img`
-	padding: 2em 2em 0em;
+	image-rendering: pixelated;
+	padding: 2em 2em 1.5em;
 	width: 200px;
 	height: auto;
 `;
@@ -67,7 +68,7 @@ export const Footprint = styled('div')`
 	align-items: center;
 	background-color: ${Colors.lightBlue};
 	box-shadow: 3px 3px 0.5em ${Colors.shadow};
-	
+
 	img {
 		height: 110%;
 		width: auto;
@@ -78,4 +79,3 @@ export const Footprint = styled('div')`
 export const TypeContainer = styled('div')`
 	display-flex
 `;
-

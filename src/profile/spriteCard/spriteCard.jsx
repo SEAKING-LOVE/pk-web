@@ -29,7 +29,7 @@ class SpriteCard extends Component {
 		});
 	}
 	renderArtwork() {
-		return <Artwork src={this.props.artwork} alt={`${this.props.name} artwork`}/>
+		return <Artwork src={this.props.animated} alt={`${this.props.name} artwork`}/>
 	}
 	renderFootprint() {
 		if(!this.props.footprint) return;
