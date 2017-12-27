@@ -81,14 +81,13 @@ class List extends Component {
 
 	renderList() {
 		return <VirtualList
-					className={ListContainer}
-					width='100%'
-					height='100%'
-					itemCount={this.state.filteredList.length}
-					itemSize={72}
-					overscanCount={25}
-					renderItem={({index, style}) => this.renderPkmnListItem({index, style})}
-				/>
+			className={ListContainer}
+			width='100%'
+			height='100%'
+			itemCount={this.state.filteredList.length}
+			itemSize={72}
+			overscanCount={25}
+			renderItem={({index, style}) => this.renderPkmnListItem({index, style})}/>
 	}
 	handleListItemClick(id) {
 		this.props.requestUpdateSelectedId(id);
