@@ -5,7 +5,8 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
 	plugins: [
 		new webpack.DefinePlugin({
-			API_HOST: JSON.stringify('http://localhost:3000')
+			// API_HOST: JSON.stringify('http://localhost:3000')
+			API_HOST: JSON.stringify('http://pk-api.jasonmh.me')
 		}),
 		new webpack.DefinePlugin({
 			'process.env': {

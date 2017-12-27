@@ -75,7 +75,7 @@ class Evolution extends Component {
 			return (
 				<Row key={chain['next'][intermediateIndex].id}>
 					<Column className={"containsPkmn " + (hasStage3 ? 'hasStage3-after' : '')}>
-						<Stage pkmn={pkmn} />
+						{this.renderStageCell(pkmn)}
 					</Column>
 					{stage}
 				</Row>
@@ -93,7 +93,7 @@ class Evolution extends Component {
 			return (
 				<Row key={pkmn.id}>
 					<Column className="containsPkmn">
-						<Stage pkmn={pkmn} />
+						{this.renderStageCell(pkmn)}
 					</Column>
 				</Row>
 			)
@@ -103,6 +103,12 @@ class Evolution extends Component {
 					{nextStage}
 				</ColumnRow>
 			</Column>
+	}
+	renderStageCell(pkmn) {
+		if(this.props.selectedId == pkmn.id) return <Stage pkmn={pkmn} />
+		return <Stage 
+			pkmn={pkmn}
+			clickHandler={() => {this.props.requestUpdateSelectedId(pkmn.id)}}/>
 	}
 	render() {
 		return this.renderChain();

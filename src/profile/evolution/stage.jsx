@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Colors } from '../../themes/themes.js';
-import { StageCell, verticalCenter, StageName, Conditions, sprite, spriteScale } from './evolution.styles.jsx'
+import { StageCell, verticalCenter, StageName, Conditions, sprite, spriteScale, clickableStage } from './evolution.styles.jsx'
 
 class Stage extends Component {
 	static defaultProps = {
-	  pkmn: {}
+	  pkmn: {},
+	  clickHandler: () => {}
 	}
 	renderSprite() {
 		return <div className={`${spriteScale} ${sprite} pki n${this.props.pkmn.id}`}></div>;
@@ -29,7 +30,7 @@ class Stage extends Component {
 		let conditions = {};
 		Object.keys(this.props.pkmn).forEach((conditionName, index) => {
 			const conditionValue = this.props.pkmn[conditionName];
-			if(this.usedCondition(conditionName, conditionValue)) {
+			if(this.isUsedCondition(conditionName, conditionValue)) {
 				const formattedConditionName = this.parseCamelCase(conditionName);
 				conditions[formattedConditionName] = conditionValue;
 			}
@@ -37,7 +38,7 @@ class Stage extends Component {
 		return conditions;
 
 	}
-	usedCondition(conditionName, conditionValue) {
+	isUsedCondition(conditionName, conditionValue) {
 		const ignoredFields = ['id', 'name', 'next'];
 		return ignoredFields.indexOf(conditionName) == -1 && !conditionName.includes('Id') && conditionValue[0];
 	}
@@ -46,13 +47,15 @@ class Stage extends Component {
 			.replace(/([A-Z])/g, ' $1')
 			.replace(/^./, (s) => s.toUpperCase());
 	}
-	containerClassName() {
+	containerContentAlignmentStyle() {
 		const conditionsExist = Object.keys(this.getConditions()).length > 0;
 		const isBaseStage = this.props.pkmn.predecessorId == null;
 		return (!conditionsExist || isBaseStage) ? verticalCenter : '';
 	}
 	render() {
-		return <StageCell className={this.containerClassName()}>
+		return <StageCell
+			className={this.containerContentAlignmentStyle()}
+			onClick={this.props.clickHandler}>
 			{this.renderName()}
 			{this.renderSprite()}
 			{this.renderConditions()}

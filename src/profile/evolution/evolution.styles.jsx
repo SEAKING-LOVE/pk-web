@@ -29,8 +29,7 @@ export const Row = styled('div')`
   flex-direction: row;
   flex: 1;
 `;
-// background: ${Colors.lightBlue};
-// color: ${Colors.white};
+
 export const Column = styled('div')`
   display: flex;
   flex: 1 1 auto;
@@ -84,6 +83,7 @@ export const StageCell = styled('div')`
   background-image: ${Colors.gradient.cool};
   border: solid 0.2em ${Colors.lightBlue};
   border-radius: 0.5em;
+  cursor: pointer;
   ${Styles.spritePosition}
   &>div {
     margin-top: 0.7em;
@@ -119,4 +119,8 @@ export const sprite = Styles.sprite;
 
 export const spriteScale = css`
   transform: scale(1.5);
+`;
+
+export const clickableStage = css`
+  cursor: pointer;
 `;
