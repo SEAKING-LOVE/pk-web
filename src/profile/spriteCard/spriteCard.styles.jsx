@@ -1,5 +1,5 @@
 import styled, { css } from 'react-emotion';
-import { Colors, Fonts } from '../../themes/themes.js';
+import { Colors, Fonts, Metrics} from '../../themes/themes.js';
 
 const badgeHeight = '1.5em';
 const largeBadgeHeight = '2em';
@@ -30,6 +30,14 @@ export const Artwork = styled.img`
 	padding: 2em 2em 1.5em;
 	height: 200px;
 	width: auto;
+
+	@media screen and (max-width: ${Metrics.moveBreakWidth}px) {
+		height: 150px;
+	}
+
+	@media screen and (max-width: ${Metrics.smallScreen}px) {
+		height: 100px;
+	}
 `;
 
 export const Footer = styled('div')`

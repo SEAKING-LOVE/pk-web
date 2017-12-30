@@ -1,6 +1,10 @@
 import styled, { css } from 'react-emotion';
 import { Colors, Fonts, Metrics } from '../../themes/themes.js';
 
+export const MovesSection = styled('div')`
+	max-width: 100%
+`;
+
 export const Nav = styled('div')`
   display: flex;
   box-sizing: border-box;
@@ -10,6 +14,7 @@ export const Nav = styled('div')`
   width: 100%;
   box-shadow: 0px 3px 5px 2px ${Colors.shadow};
   border-radius: 0.4em;
+  overflow-x: auto;
 `;
 
 export const NavHeader = styled('div')`
@@ -17,7 +22,7 @@ export const NavHeader = styled('div')`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  white-space: nowrap
   font-family: ${Fonts.bodyFamily};
   font-weight: ${Fonts.bold};
   text-transform: uppercase;
@@ -26,9 +31,7 @@ export const NavHeader = styled('div')`
   border-top: solid transparent 0.2em;
   cursor: pointer;
   transition: all 0.3s;
-  &:not(:last-child) {
-    margin-right: 10px;
-  }
+  padding: 0 20px;
 `;
 
 export const activeTab = css`

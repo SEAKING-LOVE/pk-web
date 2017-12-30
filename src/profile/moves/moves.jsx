@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Move from './move.jsx'
 
-import { Nav, NavHeader, activeTab, MoveContainer, MoveRow, MoveLevel, MoveName, MoveType, MoveClass, MoveGeneric } from './moves.styles.jsx';
+import { MovesSection, Nav, NavHeader, activeTab, MoveContainer, MoveRow, MoveLevel, MoveName, MoveType, MoveClass, MoveGeneric } from './moves.styles.jsx';
 
 class Moves extends Component {
 	constructor(props) {
@@ -75,10 +75,10 @@ class Moves extends Component {
 			/>
 	}
 	render() {
-		return <div className='moves'>
+		return <MovesSection className='moves'>
 			{this.renderTabs()}
 			{this.renderMoves()}
-		</div>
+		</MovesSection>
 	}
 }
 
