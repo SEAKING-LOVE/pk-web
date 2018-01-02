@@ -16,14 +16,16 @@ const Body = styled('div')`
 
 class App extends Component {
 	render() {
+		// return (<Body>
+		// 	<List />
+		// 	<Profile />
+		// </Body>);
 		return (<Body>
-			<List />
 			<Profile />
 		</Body>);
 	}
 }
 
-// <Route path='/about' component={About}/>
 export default () => {
 	return (
 		<BrowserRouter>

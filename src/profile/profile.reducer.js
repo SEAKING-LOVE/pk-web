@@ -1,7 +1,8 @@
 import {
-	RECEIVE_POKEMON_STATS,
 	RECEIVE_POKEMON_PROFILE_SUCCESS,
 	RECEIVE_POKEMON_PROFILE_FAILURE,
+	RECEIVE_MOVE_SUCCESS,
+	RECEIVE_MOVE_FAILURE
 } from './profile.types.js';
 
 const initialState = {
@@ -69,6 +70,19 @@ export default(state = initialState, { type, data }) => {
 		}
 		case RECEIVE_POKEMON_PROFILE_FAILURE: {
 			return { ...state, receiveProfileSuccess: false };
+		}
+		case RECEIVE_MOVE_SUCCESS: {
+			let moves = Object.assign({}, state.moves);
+			Object.keys(moves).forEach(category => {
+				const index = moves[category].findIndex((move) => {return move.id == data.id;})
+				if(index !== -1) {
+					moves[category][index].description = data.description;
+				}
+			})
+			return {...state, moves};
+		}
+		case RECEIVE_MOVE_FAILURE: {
+			return {};
 		}
 		default: {
 			return state;

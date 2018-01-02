@@ -62,6 +62,7 @@ class Moves extends Component {
 		</MoveContainer>
 	}
 	renderMove(move, index) {
+		const description = move.description ? move.description : 'Could not retrieve description';
 		return <Move
 			key={index}
 			id={move.id}
@@ -72,7 +73,8 @@ class Moves extends Component {
 			accuracy={move.accuracy}
 			type={move.type}
 			class={move.class}
-			/>
+			description={description}
+			onClick={() => this.props.requestMove(move.id)}/>
 	}
 	render() {
 		return <MovesSection className='moves'>

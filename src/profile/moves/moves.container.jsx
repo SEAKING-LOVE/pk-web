@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { requestPokemonProfile } from '../profile.actions.js';
+import { requestPokemonProfile, requestMove } from '../profile.actions.js';
 import Moves from './moves.jsx';
 
 const mapStateToProps = (state) => ({
@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
 	return {
+		requestMove: (id) => dispatch(requestMove(id))
 	}
 }
 

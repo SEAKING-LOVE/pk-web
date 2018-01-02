@@ -2,11 +2,12 @@ import "regenerator-runtime/runtime";
 
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { fetchData } from '../api.js';
-import { REQUEST_POKEMON_STATS, REQUEST_POKEMON_PROFILE } from './profile.types.js';
+import { REQUEST_MOVE, REQUEST_POKEMON_PROFILE } from './profile.types.js';
 import { 
-	receivePokemonStats,
 	receivePokemonProfileSuccess,
-	receivePokemonProfileFailure
+	receivePokemonProfileFailure,
+	receiveMoveSuccess,
+	receiveMoveFailure
 } from './profile.actions.js';
 
 function* getPokemonProfile(action) {
@@ -33,8 +34,18 @@ function* getPokemonProfile(action) {
 	}
 }
 
+function* getMove(action) {
+	try {
+		const move = yield call(fetchData, `moves/description/${action.id}`);
+		yield put(receiveMoveSuccess(move));
+	} catch(e) {
+		yield put(receiveMoveFailure(e));
+	}
+}
+
 export default function* profileSaga() {
 	yield [
-		takeLatest(REQUEST_POKEMON_PROFILE, getPokemonProfile)
+		takeLatest(REQUEST_POKEMON_PROFILE, getPokemonProfile),
+		takeLatest(REQUEST_MOVE, getMove)
 	]
 }
