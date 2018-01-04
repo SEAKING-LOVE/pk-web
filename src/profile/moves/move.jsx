@@ -10,6 +10,9 @@ class Move extends Component {
 			description: ''
 		};
 	}
+	componentWillReceiveProps(nextProps) {
+		console.log('hello from move.jsx')
+	}
 	static defaultProps = {
 		id: 0,
 		level: 0,

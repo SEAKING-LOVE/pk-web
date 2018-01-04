@@ -3,7 +3,7 @@ import "regenerator-runtime/runtime";
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { fetchData } from '../api.js';
 import { REQUEST_MOVE, REQUEST_POKEMON_PROFILE } from './profile.types.js';
-import { 
+import {
 	receivePokemonProfileSuccess,
 	receivePokemonProfileFailure,
 	receiveMoveSuccess,
@@ -19,7 +19,7 @@ function* getPokemonProfile(action) {
 		moves: [],
 		evolutions: []
 	};
-	try {	
+	try {
 		profile.overview = yield call(fetchData, `pokemon/${action.id}`);
 		profile.stats = yield call(fetchData, `pokemon/stats/${action.id}`);
 		profile.types = yield call(fetchData, `pokemon/types/${action.id}`);

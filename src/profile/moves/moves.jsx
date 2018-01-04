@@ -12,7 +12,11 @@ class Moves extends Component {
 		this.tabs = this.updateTabs(props);
 	}
 	componentWillReceiveProps(nextProps) {
+		console.log('nextProps triggered')
 		this.tabs = this.updateTabs(nextProps);
+	}
+	componentWillUpdate() {
+		console.log('componentWillUpdate')
 	}
 	updateTabs(data) {
 		return [
@@ -42,6 +46,7 @@ class Moves extends Component {
 		this.setState({ tabIndex: index });
 	}
 	renderMoves() {
+		console.log('hello from renderMoves')
 		let moves = [];
 		if (this.tabs[this.state.tabIndex].data) {
 			moves = this.tabs[this.state.tabIndex].data.map((move, index) => {
@@ -63,6 +68,9 @@ class Moves extends Component {
 	}
 	renderMove(move, index) {
 		const description = move.description ? move.description : 'Could not retrieve description';
+		// Notice how this is never updated
+		console.log(description);
+		// Also, renderMoves() is never being called again, so this would never update
 		return <Move
 			key={index}
 			id={move.id}
@@ -74,7 +82,12 @@ class Moves extends Component {
 			type={move.type}
 			class={move.class}
 			description={description}
-			onClick={() => this.props.requestMove(move.id)}/>
+			onClick={() => this.testThing(move.id)}/>
+	}
+	testThing(moveId) {
+		console.log('hello testThing') // The on click works
+		this.props.requestMove(moveId);
+		console.log(this.props) // The move information is being appended (i.e. props are updating)
 	}
 	render() {
 		return <MovesSection className='moves'>
