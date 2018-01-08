@@ -18,7 +18,15 @@ export const Container = styled('div')`
 
 `;
 
-export const Text = styled('div')`
+export const Credit = styled('div')`
+	
+`;
+
+export const Author = styled('a')`
+	text-decoration: none;
+`;
+
+export const text = css`
 	margin-bottom: 2em;
 	color: ${Colors.white};
 	letter-spacing: 0.1em;
