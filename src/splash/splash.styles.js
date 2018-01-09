@@ -19,8 +19,8 @@ export const container = css`
 `;
 
 export const Author = styled('a')`
-	text-decoration: none;
-	color: ${Colors.purple};
+	text-decoration: underline;
+	color: ${Colors.white};
 	font-weight: bold;
 	text-transform: capitalize;
 	cursor: pointer;
