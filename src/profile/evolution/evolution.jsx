@@ -38,13 +38,12 @@ class Evolution extends Component {
 
 		const baseClassNames = (hasStage2 ? 'hasStage2-before ' : '') + (hasStage3 ? 'hasStage3-before' : '');
 		const outerMostRowClassNames = hasStage3 ? 'threeStages' : '';
-
 		return (
 			<EvolutionContainer className='evolution'>
 				<ColumnRow className={outerMostRowClassNames}>
 					<Row>
 						<Column className={"containsPkmn " + baseClassNames}>
-							<Stage pkmn={chain} />
+							{this.renderStageCell(chain)}
 						</Column>
 						{hasStage2 ? this.renderAdditionalStages(chain, hasStage2, hasStage3) : null}
 					</Row>
@@ -63,7 +62,7 @@ class Evolution extends Component {
 	}
 	renderNoEvoChain() {
 		return <EvolutionContainer className='evolution'>
-			<NoEvolution>This Pokémon has no evolution chain.</NoEvolution>
+			<NoEvolution>This Pokémon does not evolve</NoEvolution>
 		</EvolutionContainer>
 	}
 

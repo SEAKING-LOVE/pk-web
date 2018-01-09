@@ -48,7 +48,7 @@ export const pokeball = css`
 	border: ${outlineWidth} solid ${Colors.white};
 	
 	cursor: pointer;
-	transition: all 0.2s ${transitionCurve};
+	transition: all 0.4s ${transitionCurve};
 
 	&:before, &:after {
 		content: '';
@@ -68,7 +68,7 @@ export const pokeball = css`
 		background-color: ${Colors.white};
 	}
 	&:hover {
-		box-shadow: 0 0 3em 0.5em ${Colors.white};
+		box-shadow: 0 0 3em 0.4em ${Colors.white};
 	}
 `;
 
