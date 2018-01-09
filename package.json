@@ -31,6 +31,7 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-tiny-virtual-list": "^2.1.4",
+    "react-transition-group": "^2.2.1",
     "redux": "^3.7.2",
     "redux-promise": "^0.5.3",
     "redux-saga": "^0.16.0",

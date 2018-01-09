@@ -4,7 +4,7 @@ import { Colors } from '../themes/themes.js';
 const outlineWidth = '0.2em';
 const transitionCurve = 'cubic-bezier(1, -0.27, 0.52, 1.81)';
 
-export const Container = styled('div')`
+export const container = css`
 	z-index: 999;
 	position: absolute;
 	display: flex;
@@ -18,21 +18,25 @@ export const Container = styled('div')`
 
 `;
 
-export const Credit = styled('div')`
-	
-`;
-
 export const Author = styled('a')`
 	text-decoration: none;
+	color: ${Colors.purple};
+	font-weight: bold;
+	text-transform: capitalize;
+	cursor: pointer;
+
+	&:visited, &:active {
+		outline: 0;
+	}
 `;
 
 export const text = css`
-	margin-bottom: 2em;
+	margin: 2em 0;
 	color: ${Colors.white};
 	letter-spacing: 0.1em;
 `;
 
-export const Pokeball = styled('div')`
+export const pokeball = css`
 	position: relative;
 	display: flex;
 	justify-content: center;
