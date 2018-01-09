@@ -7,12 +7,14 @@ const Colors = {
 	darkGrey: '#a9b0b3',
 	pink: '#d5224e',
 	lightBlue: '#28bcf0',
-
+	purple: '#8b4188',
+	
 	shadow: 'rgba(0,0,0,0.26)',
 	gradient: {
 		pink: 'linear-gradient(to bottom, #db3463, #d92a47);',
 		warm: 'linear-gradient(to left, #ff7e5f, #feb47b);',
-		cool: 'linear-gradient(to right, #00c6ff, #2580ef);'
+		cool: 'linear-gradient(to right, #00c6ff, #2580ef);',
+		red: 'radial-gradient(ellipse at center bottom, #f84121 5%, #ff1b44 60%);',
 	},
 	moveCategories: {
 		physical: '#da574a',
